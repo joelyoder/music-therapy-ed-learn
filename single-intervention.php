@@ -19,8 +19,8 @@ if (!empty($domain_attrs)){
 <div id="main-content">
 	<div class="intervention-grid-container">
 		<div class="intervention-subnav">
-			<a href="http://localhost/mte-learn/project-campfire" class="intervention-mobile-nav"><i class="far fa-chevron-left"></i>&nbsp;&nbsp;<strong>Project</strong> Campfire</a>
-		</div>
+			<a href="/project-campfire" class="intervention-mobile-nav"><i class="far fa-chevron-left"></i>&nbsp;&nbsp;<strong>Project</strong> Campfire</a>
+		</div><!-- .intervention-subnav -->
 		<div class="intervention-header">
 			<?php
 			if ( !empty($domain)) :
@@ -50,9 +50,9 @@ if (!empty($domain_attrs)){
 			endif; ?>
 			<h1><?php echo get_the_title( $post_id ); ?></h1>
 			<p><?php echo $description ?></p>
-		</div>
+		</div><!-- .intervention-header -->
 		<div class="intervention-sidebar">
-			<a href="http://localhost/mte-learn/project-campfire" class="intervention-sidebar-nav"><i class="fas fa-fire-alt"></i>&nbsp;&nbsp;<strong>Project</strong> Campfire</a>
+			<a href="/project-campfire" class="intervention-sidebar-nav"><i class="fas fa-fire-alt"></i>&nbsp;&nbsp;<strong>Project</strong> Campfire</a>
 			<h2>Domain</h2>
 			<?php
 			$domain_attrs = get_the_terms( $post->ID, 'domain' );
@@ -104,7 +104,7 @@ if (!empty($domain_attrs)){
 			<?php if(get_field('button_visibility')) : ?>
 				<a class="button navy" href="<?php the_field('button_url') ?>"><?php the_field('button_text') ?></a>
 			<?php endif; ?>
-		</div>
+		</div><!-- .intervention-sidebar -->
 		<div class="intervention-content">
 			<h2>Instructions</h2>
 			<?php echo $instructions ?>
@@ -115,9 +115,9 @@ if (!empty($domain_attrs)){
 				<br >
 				<div class="embed-container">
 					<?php echo $video ?>
-				</div>
+				</div><!-- .embed-container -->
 			<?php endif; ?>
-		</div>
+		</div><!-- .intervention-content -->
 	</div><!-- .intervention-grid-container -->
 </div> <!-- #main-content -->
 

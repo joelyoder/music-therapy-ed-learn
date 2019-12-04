@@ -5,7 +5,7 @@
  Author:       Joel Yoder
  Author URI:   https://joelyoder.com
  Template:     Divi
- Version:      1.0.1
+ Version:      1.0.2
 */
 
 /*****Add any custom CSS below this line*****/
@@ -14,6 +14,7 @@
     background: #f1f1f1;
 }
 
+/* CONTAINER */
 .intervention-grid-container {
     display: grid;
     grid-template-columns: .6fr 1.4fr;
@@ -24,6 +25,19 @@
     margin: 0 auto;
     padding: 5em 0;
 }
+
+@media only screen and (max-width: 767px) {
+    .intervention-grid-container {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: "subnav" "header" "sidebar" "content";
+
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* NAVIGATION */
 
 .intervention-subnav {
     display: none;
@@ -37,6 +51,19 @@
     font-size: 25px;
     font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
 }
+
+@media only screen and (max-width: 767px) {
+    .intervention-subnav {
+        display: initial;
+        grid-area: subnav;
+    }
+
+    .intervention-sidebar-nav {
+        display: none;
+    }
+}
+
+/* HEADER */
 
 .intervention-header {
     grid-area: header;
@@ -63,6 +90,8 @@
     font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
     font-size: 32px;
 }
+
+/* SIDEBAR */
   
 .intervention-sidebar {
     grid-area: sidebar;
@@ -72,6 +101,17 @@
     position: -webkit-sticky;
     position: sticky;
     top: 5%;
+}
+
+@media only screen and (max-width: 767px) {
+    .intervention-sidebar {
+        padding: 30px;
+        height: auto;
+        min-height: auto;
+        overflow: auto;
+        position: inherit;
+        top: 0;
+    }
 }
 
 .intervention-sidebar h2, .intervention-sidebar li {
@@ -119,6 +159,8 @@
 .intervention-sidebar-nav i {
     color: #fc7405;
 }
+
+/* CONTENT */
   
 .intervention-content {
     grid-area: content;
@@ -150,29 +192,12 @@
     padding-left: 10px;
 }
 
+/* HEADER + CONTENT AREA BOX SHADOW */
 .intervention-header, .intervention-content {
     box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
 }
 
 @media only screen and (max-width: 767px) {
-    .intervention-grid-container {
-        grid-template-columns: auto;
-        grid-template-rows: auto;
-        grid-template-areas: "subnav" "header" "sidebar" "content";
-
-        margin: 0;
-        padding: 0;
-    }
-
-    .intervention-subnav {
-        display: initial;
-        grid-area: subnav;
-    }
-
-    .intervention-sidebar-nav {
-        display: none;
-    }
-
     .intervention-header, .intervention-content {
         box-shadow: none;
     }
