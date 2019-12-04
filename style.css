@@ -37,7 +37,7 @@
     }
 }
 
-/* NAVIGATION */
+/* MOBILE NAVIGATION */
 
 .intervention-subnav {
     display: none;
@@ -56,10 +56,6 @@
     .intervention-subnav {
         display: initial;
         grid-area: subnav;
-    }
-
-    .intervention-sidebar-nav {
-        display: none;
     }
 }
 
@@ -82,6 +78,16 @@
 
 .intervention-header p, .intervention-content p {
     color: #191919;
+}
+
+@media only screen and (max-width: 767px) {
+    .intervention-header p, .intervention-header h1 {
+        padding: 0 30px;
+    }
+
+    .intervention-header {
+        padding-bottom: 30px;
+    }
 }
 
 .intervention-header h1 {
@@ -143,6 +149,14 @@
     background: #e35760;
 }
 
+@media only screen and (max-width: 767px) {
+    .intervention-sidebar .button {
+        width: 100%;
+        text-align: center;
+        margin-top: 0;
+    }
+}
+
 .intervention-sidebar-nav {
     color: #555555;
     font-size: 25px;
@@ -160,6 +174,12 @@
     color: #fc7405;
 }
 
+@media only screen and (max-width: 767px) {
+    .intervention-sidebar-nav {
+        display: none;
+    }
+}
+
 /* CONTENT */
   
 .intervention-content {
@@ -168,16 +188,23 @@
     padding: 0 40px 40px 40px;
 }
 
+@media only screen and (max-width: 767px) {
+    .intervention-content {
+        padding: 0 30px 30px 30px;
+    }
+}
+
 .intervention-content h2 {
     color: #246C99;
     font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
     font-size: 24px;
     font-weight: 500;
-    padding: 50px 0 20px 0;
+    padding: 40px 0 15px 0;
 }
 
 .intervention-content ol, .intervention-content ul {
-    padding-left: 30px;
+    padding-left: 20px;
+    margin: 15px 0;
 }
 
 .intervention-content ol {
@@ -190,6 +217,7 @@
 
 .intervention-content ol li, .intervention-content ul li {
     padding-left: 10px;
+    margin-bottom: 5px;
 }
 
 /* HEADER + CONTENT AREA BOX SHADOW */
