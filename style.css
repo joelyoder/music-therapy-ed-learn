@@ -255,11 +255,73 @@
 }
 
 .section.campfire {
-    width: 95%;
     max-width: 1440px;
     margin: 0 auto;
     padding: 50px 0;
 }
+
+@media only screen and (max-width: 980px) {
+    .section.campfire {
+        padding-top: 0px;
+    }
+}
+
+/* HEADER CARDS */
+
+.header-card {
+    padding: 20px;
+    background-image: linear-gradient(32deg,#ffffff 60%,#FC7405 60%);
+    background-color: #ffffff;
+    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
+    max-width: 960px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 980px) {
+    .header-card {
+        padding: 35px 40px;
+        background-image: linear-gradient(165deg,#ffffff 75%,#FC7405 75%);
+        box-shadow: none;
+        margin-bottom: 40px;
+    }
+}
+
+.header-card .message, .header-card .video {
+    position: relative;
+}
+
+.header-card .message {
+    margin-bottom: 30px;
+}
+
+@media (min-width: 981px) {
+    .header-card .message, .header-card .video {
+        width: 47.25%;
+        float: left;
+        position: relative;
+    }
+
+    .header-card .message {
+        padding: 40px 30px 30px 30px;
+        margin-right: 5.5%;
+        margin-bottom: 0;
+    }
+}
+
+.header-card .message h1 {
+    line-height: 1.8em;
+}
+
+.header-card .message .count {
+    background: #FFBB1E;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* INTERVENTION CARDS */
 
 .post-module {
     position: relative;

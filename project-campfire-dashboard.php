@@ -34,6 +34,80 @@ $posts = get_posts(array(
 ));
 ?>
     <div class="section campfire">
+        
+        <!--header card repeater-->
+        <?php if( have_rows('header_cards') ): ?>
+
+            <?php while( have_rows('header_cards') ): the_row(); 
+
+                // vars
+                $message = get_sub_field('message');
+                $video = get_sub_field('video');
+                $unlock_id = get_sub_field('unlock_id');
+                $tags = get_sub_field('tags');
+
+                ?>
+
+                <?php
+                if( !empty($tags) ):
+                echo do_shortcode("[accessally_has_any_tag tag_id='$tags']");
+                endif;
+                ?>
+
+                <div class="header-card">
+
+                    <div class="message">
+                        <h1><strong>Project</strong> Campfire <i class="fad fa-fire-alt" style="--fa-primary-color: #FFCA51; --fa-secondary-color: #fc7405; --fa-secondary-opacity: 1; font-size: 30px;" aria-hidden="true"></i></h1>
+                        <?php echo $message; ?>
+
+                        <!--button repeater-->
+                        <?php if( have_rows('buttons') ): ?>
+
+                            <p class="button-bar">
+
+                                <?php while( have_rows('buttons') ): the_row();
+
+                                //vars
+                                $text = get_sub_field('text');
+                                $url = get_sub_field('url');
+                                $color = get_sub_field('color');
+                                ?>
+
+                                <a class="button <?php echo $color; ?>" href="<?php echo $url; ?>"><?php echo $text; ?></a>
+
+                                <?php endwhile; ?>
+
+                            </p>
+
+                        <?php endif; ?>
+
+                        <!--unlocks counter-->
+                        <?php if( !empty($unlock_id) ): ?>
+                            <p><span style="display: inline-block;"><span class="count"><?php echo do_shortcode("[accessally_field_value operation_id='$operation_id']"); ?></span> <strong>UNLOCKS AVAILABLE</strong></span></p>
+                        <?php endif; ?>
+                    </div>
+
+                    <div class="video">
+                        <div class="embed-container">
+                            <?php echo $video ?>
+                        </div><!-- .embed-container -->
+                    </div>
+
+                </div>
+
+                <?php
+                if( !empty($tags) ) :
+                echo do_shortcode("[/accessally_has_any_tag]");
+                endif;
+                ?>
+
+            <?php endwhile; ?>
+
+        <?php endif; ?>
+
+    <div class="section campfire">
+
+        <!-- Card repeater -->
         <?php if( $posts ): ?>
 
                 <?php foreach( $posts as $post ): 
