@@ -44,7 +44,7 @@ if (!empty($domain_attrs)){
 						echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Sensorimotor-Intervention-Cover.png" alt="" />';
 						break;
 					case "spiritual":
-						echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Emotional-Intervention-Cover.png" alt="" />';
+						echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Spiritual-Intervention-Cover.png" alt="" />';
 						break;
 				endswitch;
 			endif; ?>
@@ -55,7 +55,6 @@ if (!empty($domain_attrs)){
 			<a href="/project-campfire" class="intervention-sidebar-nav"><i class="fas fa-fire-alt"></i>&nbsp;&nbsp;<strong>Project</strong> Campfire</a>
 			<h2>Domain</h2>
 			<?php
-			$domain_attrs = get_the_terms( $post->ID, 'domain' );
 			if (!empty($domain_attrs)) : ?>
 				<ul class="meta">
 					<?php 

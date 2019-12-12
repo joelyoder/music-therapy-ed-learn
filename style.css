@@ -8,7 +8,7 @@
  Version:      1.0.2
 */
 
-/*****Add any custom CSS below this line*****/
+/*****INTERVENTION TEMPLATE*****/
 
 .intervention-template-default #main-content {
     background: #f1f1f1;
@@ -246,4 +246,253 @@
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/*****DASHBOARD TEMPLATE*****/
+
+#main-content.campfire {
+    background-color: #f4f4f4 !important; /*Override Divi*/
+}
+
+.section.campfire {
+    width: 95%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.post-module {
+    position: relative;
+    z-index: 1;
+    display: block;
+    background: #FFFFFF;
+    width: 320px;
+    height: 480px;
+    margin: 0px 20px 30px 20px;
+    /* Shadow */
+    -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    /* Transitions */
+    -webkit-transition: all 0.3s linear 0s;
+    -moz-transition: all 0.3s linear 0s;
+    -ms-transition: all 0.3s linear 0s;
+    -o-transition: all 0.3s linear 0s;
+    transition: all 0.3s linear 0s;
+    /* Flexbox settings */
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+.post-module:hover,
+.hover {
+    -webkit-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
+}
+
+.post-module:hover .thumbnail img,
+.hover .thumbnail img {
+    opacity: 0.5;
+}
+
+.post-module .thumbnail {
+    background: #FFFFFF;
+    height: 250px;
+    overflow: hidden;
+}
+
+.post-module .thumbnail img {
+    display: block;
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-transition: all 0.3s linear 0s;
+    -moz-transition: all 0.3s linear 0s;
+    -ms-transition: all 0.3s linear 0s;
+    -o-transition: all 0.3s linear 0s;
+    transition: all 0.3s linear 0s;
+}
+
+.post-module .post-content {
+    position: absolute;
+    bottom: 0;
+    background: #FFFFFF;
+    width: 100%;
+    padding: 30px 30px 20px 30px;
+    font-family: 'Open Sans', sans-serif;
+    -webkti-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
+    -moz-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
+    -ms-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
+    -o-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
+    transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
+}
+
+.post-module .post-content .category {
+    position: absolute;
+    top: -18px;
+    right: 20px;
+    padding: 5px 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.post-module .post-content .category.cognitive {
+background: #9CCB46;
+}
+
+.post-module .post-content .category.communicative {
+    background: #e35760;
+}
+
+.post-module .post-content .category.emotional {
+    background: #ffbb1e;
+}
+
+.post-module .post-content .category.musical {
+    background: #246c99;
+}
+
+.post-module .post-content .category.psychosocial {
+    background: #FF914D;
+}
+
+.post-module .post-content .category.sensorimotor {
+    background: #8C52FF;
+}
+
+.post-module .post-content .category.spiritual {
+    background: #CB6CE6;
+}
+
+.post-module .post-content .title {
+    margin: 0;
+    padding: 0 0 10px;
+    color: #333333;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;
+}
+
+.post-module .post-content .sub_title {
+    margin: 0;
+    padding: 0 0 20px;
+    color: #FC7405;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+}
+
+.post-module .post-content .description {
+    display: none;
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.8em;
+    padding: 0 0 10px;
+}
+
+.post-module .post-content .card-meta {
+    /*display: none;*/
+    color: #666666;
+    font-weight: 600;
+}
+
+.post-module .post-content ul {
+    padding: 0;
+    list-style-type: none;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.post-module .post-content .card-meta li {
+    padding: 10px 0 10px 25px;
+}
+
+.post-module .post-content .card-meta li:before {
+    position:absolute;
+    left: 30px;
+}
+
+.post-module .post-content .card-meta li:first-of-type:before {
+    content: "\f1ae";
+    font-family: 'Font Awesome 5 Pro';
+}
+
+.post-module .post-content .card-meta li:last-of-type:before {
+    content: "\f7a6";
+    font-family: 'Font Awesome 5 Pro';
+}
+
+.post-module .post-content .card-meta li i {
+    padding-right: 15px;
+}
+
+.post-module .post-content .post-meta {
+    margin: 10px 0 0;
+    text-align: center;
+}
+
+.post-module .post-content .post-meta a {
+    text-decoration: none;
+}
+
+.post-module .post-content .post-meta .button {
+    background: #FC7405;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out;
+}
+
+.post-module .post-content .post-meta .button:hover {
+    filter: brightness(110%);
+}
+
+.post-module .post-content .post-meta .button i {
+    padding-left: 5px;
+}
+
+.hover .post-content .description {
+    display: block !important;
+    height: auto !important;
+    opacity: 1 !important;
+}
+
+/* Disabled cards */
+.disabled .thumbnail img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.disabled .post-content .sub_title, .disabled .post-content .post-meta, .disabled .post-content .description, .disabled .post-content .card-meta  {
+    color: #888888;
+}
+
+.disabled .post-content .title {
+    color: #666666;
+}
+
+.disabled .post-content .post-meta .button {
+    background: #666666;
+}
+
+.disabled .post-content .category {
+    background: #666666;
 }
