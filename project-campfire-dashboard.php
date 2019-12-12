@@ -119,7 +119,7 @@ $posts = get_posts(array(
                     }
                     ?>
 
-                <div class="card-module<?php if( !accessally_has_any_tag_id("104,2207,$tag") && !$freebie ): ?> disabled<?php endif; ?>" <?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>style="order:-1;"<?php endif; ?>>
+                <div class="card-module<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?>" <?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>style="order:-1;"<?php endif; ?>>
 
                         <!-- Thumbnail-->
                         <div class="thumbnail">
@@ -183,7 +183,7 @@ $posts = get_posts(array(
                                     <a class="button" href="<?php the_permalink(); ?>">Access <i class="fas fa-fire-alt"></i></a>
                                 <?php elseif( $freebie ): ?>
                                     <a class="button" href="<?php the_permalink(); ?>">FREE <i class="fas fa-fire-alt"></i></a>
-                                <?php elseif( accessally_has_any_tag_id("104,2207") ) : ?>
+                                <?php elseif( accessally_has_any_tag_id("104,2207,1879") ) : ?>
                                     <?php echo do_shortcode("[accessally_field_value operation_id='$operation_id']"); ?>
                                 <?php else : ?>
                                     <a class="button" href="">Coming Soon <i class="fas fa-lock"></i></a>
