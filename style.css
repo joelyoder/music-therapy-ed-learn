@@ -5,7 +5,7 @@
  Author:       Joel Yoder
  Author URI:   https://joelyoder.com
  Template:     Divi
- Version:      1.0.2
+ Version:      1.0.4
 */
 
 /*****INTERVENTION TEMPLATE*****/
@@ -323,7 +323,7 @@
 
 /* INTERVENTION CARDS */
 
-.post-module {
+.card-module {
     position: relative;
     z-index: 1;
     display: block;
@@ -353,25 +353,25 @@
     align-self: auto;
 }
 
-.post-module:hover,
+.card-module:hover,
 .hover {
     -webkit-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
 }
 
-.post-module:hover .thumbnail img,
+.card-module:hover .thumbnail img,
 .hover .thumbnail img {
     opacity: 0.5;
 }
 
-.post-module .thumbnail {
+.card-module .thumbnail {
     background: #FFFFFF;
     height: 250px;
     overflow: hidden;
 }
 
-.post-module .thumbnail img {
+.card-module .thumbnail img {
     display: block;
     width: 120%;
     height: 100%;
@@ -383,7 +383,7 @@
     transition: all 0.3s linear 0s;
 }
 
-.post-module .post-content {
+.card-module .card-content {
     position: absolute;
     bottom: 0;
     background: #FFFFFF;
@@ -400,7 +400,7 @@
     transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
 }
 
-.post-module .post-content .category {
+.card-module .card-content .category {
     position: absolute;
     top: -18px;
     right: 20px;
@@ -414,35 +414,35 @@
     border-radius: 5px;
 }
 
-.post-module .post-content .category.cognitive {
+.card-module .card-content .category.cognitive {
 background: #9CCB46;
 }
 
-.post-module .post-content .category.communicative {
+.card-module .card-content .category.communicative {
     background: #e35760;
 }
 
-.post-module .post-content .category.emotional {
+.card-module .card-content .category.emotional {
     background: #ffbb1e;
 }
 
-.post-module .post-content .category.musical {
+.card-module .card-content .category.musical {
     background: #246c99;
 }
 
-.post-module .post-content .category.psychosocial {
+.card-module .card-content .category.psychosocial {
     background: #FF914D;
 }
 
-.post-module .post-content .category.sensorimotor {
+.card-module .card-content .category.sensorimotor {
     background: #8C52FF;
 }
 
-.post-module .post-content .category.spiritual {
+.card-module .card-content .category.spiritual {
     background: #CB6CE6;
 }
 
-.post-module .post-content .title {
+.card-module .card-content .title {
     margin: 0;
     padding: 0 0 10px;
     color: #333333;
@@ -451,7 +451,7 @@ background: #9CCB46;
     font-family: 'Raleway', sans-serif;
 }
 
-.post-module .post-content .sub_title {
+.card-module .card-content .sub_title {
     margin: 0;
     padding: 0 0 20px;
     color: #FC7405;
@@ -460,7 +460,7 @@ background: #9CCB46;
     font-family: 'Raleway', sans-serif;
 }
 
-.post-module .post-content .description {
+.card-module .card-content .description {
     display: none;
     color: #666666;
     font-size: 14px;
@@ -468,52 +468,52 @@ background: #9CCB46;
     padding: 0 0 10px;
 }
 
-.post-module .post-content .card-meta {
+.card-module .card-content .card-meta {
     /*display: none;*/
     color: #666666;
     font-weight: 600;
 }
 
-.post-module .post-content ul {
+.card-module .card-content ul {
     padding: 0;
     list-style-type: none;
     font-size: 14px;
     line-height: 16px;
 }
 
-.post-module .post-content .card-meta li {
+.card-module .card-content .card-meta li {
     padding: 10px 0 10px 25px;
 }
 
-.post-module .post-content .card-meta li:before {
+.card-module .card-content .card-meta li:before {
     position:absolute;
     left: 30px;
 }
 
-.post-module .post-content .card-meta li:first-of-type:before {
+.card-module .card-content .card-meta li:first-of-type:before {
     content: "\f1ae";
     font-family: 'Font Awesome 5 Pro';
 }
 
-.post-module .post-content .card-meta li:last-of-type:before {
+.card-module .card-content .card-meta li:last-of-type:before {
     content: "\f7a6";
     font-family: 'Font Awesome 5 Pro';
 }
 
-.post-module .post-content .card-meta li i {
+.card-module .card-content .card-meta li i {
     padding-right: 15px;
 }
 
-.post-module .post-content .post-meta {
+.card-module .card-content .card-access {
     margin: 10px 0 0;
     text-align: center;
 }
 
-.post-module .post-content .post-meta a {
+.card-module .card-content .card-access a {
     text-decoration: none;
 }
 
-.post-module .post-content .post-meta .button {
+.card-module .card-content .card-access .button {
     background: #FC7405;
     color: #FFFFFF;
     font-weight: bold;
@@ -523,15 +523,15 @@ background: #9CCB46;
     transition: all 0.3s ease-out;
 }
 
-.post-module .post-content .post-meta .button:hover {
+.card-module .card-content .card-access .button:hover {
     filter: brightness(110%);
 }
 
-.post-module .post-content .post-meta .button i {
+.card-module .card-content .card-access .button i {
     padding-left: 5px;
 }
 
-.hover .post-content .description {
+.hover .card-content .description {
     display: block !important;
     height: auto !important;
     opacity: 1 !important;
@@ -543,18 +543,18 @@ background: #9CCB46;
     filter: grayscale(100%);
 }
 
-.disabled .post-content .sub_title, .disabled .post-content .post-meta, .disabled .post-content .description, .disabled .post-content .card-meta  {
+.disabled .card-content .sub_title, .disabled .card-content .card-access, .disabled .card-content .description, .disabled .card-content .card-meta  {
     color: #888888;
 }
 
-.disabled .post-content .title {
+.disabled .card-content .title {
     color: #666666;
 }
 
-.disabled .post-content .post-meta .button {
+.disabled .card-content .card-access .button {
     background: #666666;
 }
 
-.disabled .post-content .category {
+.disabled .card-content .category.cognitive, .disabled .card-content .category.communicative, .disabled .card-content .category.emotional, .disabled .card-content .category.musical, .disabled .card-content .category.psychosocial, .disabled .card-content .category.sensorimotor, .disabled .card-content .category.spiritual {
     background: #666666;
 }
