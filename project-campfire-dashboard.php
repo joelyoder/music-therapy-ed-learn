@@ -79,7 +79,7 @@ $posts = get_posts(array(
 
                             <!--unlocks counter-->
                             <?php if( !empty($unlock_id) ): ?>
-                                <p><span style="display: inline-block;"><span class="count"><?php echo do_shortcode("[accessally_field_value operation_id='$operation_id']"); ?></span> <strong>UNLOCKS AVAILABLE</strong></span></p>
+                                <p><span style="display: inline-block;"><span class="count"><?php echo do_shortcode( '[accessally_field_value operation_id="'. $unlock_id .'"]' ); ?></span> <strong>UNLOCKS AVAILABLE</strong></span></p>
                             <?php endif; ?>
                         </div>
 
@@ -180,11 +180,11 @@ $posts = get_posts(array(
                             </ul>
                             <div class="card-access">
                                 <?php if( accessally_has_any_tag_id("$tag") ): ?>
-                                    <a class="button" href="<?php the_permalink(); ?>">Access <i class="fas fa-fire-alt"></i></a>
+                                    <a class="button orange" href="<?php the_permalink(); ?>">Access <i class="fas fa-fire-alt"></i></a>
                                 <?php elseif( $freebie ): ?>
-                                    <a class="button" href="<?php the_permalink(); ?>">FREE <i class="fas fa-fire-alt"></i></a>
+                                    <a class="button orange" href="<?php the_permalink(); ?>">FREE <i class="fas fa-fire-alt"></i></a>
                                 <?php elseif( accessally_has_any_tag_id("104,2207,1879") ) : ?>
-                                    <?php echo do_shortcode('[accessally_custom_operation operation_id="$operation_id"]'); ?>
+                                    <?php echo do_shortcode( '[accessally_custom_operation operation_id="'. $operation_id .'"]' ); ?>
                                 <?php else : ?>
                                     <a class="button" href="">Coming Soon <i class="fas fa-lock"></i></a>
                                 <?php endif; ?>

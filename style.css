@@ -101,7 +101,7 @@
   
 .intervention-sidebar {
     grid-area: sidebar;
-    height: 110vh; // experiment with this value, try changing to 110vh
+    height: 110vh;
     min-height: 200px;
     overflow: auto;
     position: -webkit-sticky;
@@ -514,7 +514,6 @@ background: #9CCB46;
 }
 
 .card-module .card-content .card-access .button {
-    background: #FC7405;
     color: #FFFFFF;
     font-weight: bold;
     padding: 12px 20px;
