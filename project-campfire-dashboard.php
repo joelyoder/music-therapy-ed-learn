@@ -184,7 +184,7 @@ $posts = get_posts(array(
                                 <?php elseif( $freebie ): ?>
                                     <a class="button" href="<?php the_permalink(); ?>">FREE <i class="fas fa-fire-alt"></i></a>
                                 <?php elseif( accessally_has_any_tag_id("104,2207,1879") ) : ?>
-                                    <?php echo do_shortcode("[accessally_field_value operation_id='$operation_id']"); ?>
+                                    <?php echo do_shortcode('[accessally_custom_operation operation_id="$operation_id"]'); ?>
                                 <?php else : ?>
                                     <a class="button" href="">Coming Soon <i class="fas fa-lock"></i></a>
                                 <?php endif; ?>
