@@ -323,6 +323,17 @@
 
 /* INTERVENTION CARDS */
 
+#grid {
+    position: relative;
+    overflow: hidden;
+}
+  
+.my-sizer-element {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
 .card-module {
     position: relative;
     z-index: 1;

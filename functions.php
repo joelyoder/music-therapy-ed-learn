@@ -1,5 +1,5 @@
 <?php
-function my_theme_enqueue_styles() {
+function mte_enqueue_styles() {
  
     $parent_style = 'divi-style';
  
@@ -10,7 +10,12 @@ function my_theme_enqueue_styles() {
         wp_get_theme()->get('Version')
     );
 }
-add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'mte_enqueue_styles' );
+
+function mte_enqueue_scripts() {
+    wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/campfire.js', array( 'jquery' ),'',true );
+}
+add_action( 'wp_enqueue_scripts', 'mte_enqueue_scripts' );
  
  
 //you can add custom functions below this line:

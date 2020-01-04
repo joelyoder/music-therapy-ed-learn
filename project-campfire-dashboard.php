@@ -98,7 +98,23 @@ $posts = get_posts(array(
         <?php endif; ?>
     </div><!-- .section -->
 
-    <div class="section campfire">
+    <div class="container">
+        <div class="filters-group search">
+            <i class="fas fa-search"></i>
+            <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input" aria-label="Search" />
+        </div>
+        <div class="btn-group filter-options">
+            <button class="btn btn--primary" data-group="cognitive">Cognitive</button>
+            <button class="btn btn--primary" data-group="communicative">Communicative</button>
+            <button class="btn btn--primary" data-group="emotional">Emotional</button>
+            <button class="btn btn--primary" data-group="musical">Musical</button>
+            <button class="btn btn--primary" data-group="psychosocial">Psychosocial</button>
+            <button class="btn btn--primary" data-group="sensorimotor">Sensorimotor</button>
+            <button class="btn btn--primary" data-group="spiritual">Spiritual</button>
+        </div>
+    </div>
+
+    <div class="section campfire my-shuffle-container row" id="grid">
 
         <!-- Card repeater -->
         <?php if( $posts ): ?>
@@ -117,10 +133,26 @@ $posts = get_posts(array(
                         $domain = $attr->slug;
                         }
                     }
+
+                    $method_attrs = get_the_terms( $post->ID, 'method' );
+                    if (!empty($method_attrs)){
+                        foreach($method_attrs as $attr){
+                        $method = $attr->slug;
+                        }
+                    }
+                    
+                    // List populations and format for card and shuffle
+                    $population_list = get_the_terms( $post->ID, 'population' );
+                    $population_terms_string = join(', ', wp_list_pluck($population_list, 'name'));
+                    $population_shuffle_string = strtolower('["' . str_replace(', ', '"],["', $population_terms_string) . '"]');
+
+                    // List equipment and format for card and shuffle
+                    $equipment_list = get_the_terms( $post->ID, 'equipment' );
+                    $equipment_terms_string = join(', ', wp_list_pluck($equipment_list, 'name'));
+                    $equipment_shuffle_string = strtolower('["' . str_replace(', ', '"],["', $equipment_terms_string) . '"]');
                     ?>
-
-                <div class="card-module<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?>" <?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>style="order:-1;"<?php endif; ?>>
-
+                    
+                    <div class="card-module<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?>" <?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>style="order:-1;"<?php endif; ?> data-groups='<?php echo $equipment_shuffle_string . ',' . $population_shuffle_string . ',["' . $method . '"],["' . $domain . '"]' ?>' data-title="<?php the_title(); ?>">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
                             <?php
@@ -165,15 +197,11 @@ $posts = get_posts(array(
                             <ul class="card-meta">
                                 <li>For
                                     <?php
-                                    $population_list = get_the_terms( $post->ID, 'population' );
-                                    $population_terms_string = join(', ', wp_list_pluck($population_list, 'name'));
                                     echo $population_terms_string;
                                     ?>
                                 </li>
                                 <li>Requires
                                     <?php
-                                    $equipment_list = get_the_terms( $post->ID, 'equipment' );
-                                    $equipment_terms_string = join(', ', wp_list_pluck($equipment_list, 'name'));
                                     echo $equipment_terms_string;
                                     ?>
                                 </li>
@@ -192,6 +220,7 @@ $posts = get_posts(array(
                         </div>
 
                     </div>
+                    <div class="my-sizer-element"></div>
                     
                 <?php endforeach; ?>
             
@@ -199,6 +228,10 @@ $posts = get_posts(array(
 
         <?php endif; ?>
     </div><!-- .section -->
+
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Set%2CArray.from%2CObject.assign%2CArray.prototype.find%2CArray.prototype.includes"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Shuffle/5.2.3/shuffle.min.js"></script>
+
 </div> <!-- #main-content -->
 
 <?php
