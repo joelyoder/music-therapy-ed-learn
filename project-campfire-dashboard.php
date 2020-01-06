@@ -98,23 +98,22 @@ $posts = get_posts(array(
         <?php endif; ?>
     </div><!-- .section -->
 
-    <div class="container">
-        <div class="filters-group search">
-            <i class="fas fa-search"></i>
-            <input class="textfield filter__search js-shuffle-search" type="search" id="filters-search-input" aria-label="Search" />
-        </div>
-        <div class="btn-group filter-options">
-            <button class="btn btn--primary" data-group="cognitive">Cognitive</button>
-            <button class="btn btn--primary" data-group="communicative">Communicative</button>
-            <button class="btn btn--primary" data-group="emotional">Emotional</button>
-            <button class="btn btn--primary" data-group="musical">Musical</button>
-            <button class="btn btn--primary" data-group="psychosocial">Psychosocial</button>
-            <button class="btn btn--primary" data-group="sensorimotor">Sensorimotor</button>
-            <button class="btn btn--primary" data-group="spiritual">Spiritual</button>
-        </div>
-    </div>
+    <ul class="filter-menu">
 
-    <div class="section campfire my-shuffle-container row" id="grid">
+    <!-- For filtering controls add -->
+
+        <li data-filter="all"> All items </li>
+
+        <li data-filter="sensorimotor"> Sensorimotor </li>
+
+        <li data-filter="2"> People</li>
+
+        <li data-filter="3"> Cities </li>
+    </ul>
+
+<input type="text" name="filtr-search" value="" placeholder="Your search" data-search="">
+
+    <div class="section campfire filtr-container">
 
         <!-- Card repeater -->
         <?php if( $posts ): ?>
@@ -144,15 +143,13 @@ $posts = get_posts(array(
                     // List populations and format for card and shuffle
                     $population_list = get_the_terms( $post->ID, 'population' );
                     $population_terms_string = join(', ', wp_list_pluck($population_list, 'name'));
-                    $population_shuffle_string = strtolower('["' . str_replace(', ', '"],["', $population_terms_string) . '"]');
 
                     // List equipment and format for card and shuffle
                     $equipment_list = get_the_terms( $post->ID, 'equipment' );
                     $equipment_terms_string = join(', ', wp_list_pluck($equipment_list, 'name'));
-                    $equipment_shuffle_string = strtolower('["' . str_replace(', ', '"],["', $equipment_terms_string) . '"]');
                     ?>
                     
-                    <div class="card-module<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?>" <?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>style="order:-1;"<?php endif; ?> data-groups='<?php echo $equipment_shuffle_string . ',' . $population_shuffle_string . ',["' . $method . '"],["' . $domain . '"]' ?>' data-title="<?php the_title(); ?>">
+                    <div class="card-module filtr-item<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?>" <?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>style="order:-1;"<?php endif; ?> data-category='<?php echo $equipment_terms_string . ', ' . $population_terms_string . ', ' . $method . ', ' . $domain ?>' data-sort="<?php the_title(); ?>">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
                             <?php
@@ -229,8 +226,7 @@ $posts = get_posts(array(
         <?php endif; ?>
     </div><!-- .section -->
 
-    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=Set%2CArray.from%2CObject.assign%2CArray.prototype.find%2CArray.prototype.includes"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/Shuffle/5.2.3/shuffle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/filterizr/1.3.4/jquery.filterizr.min.js"></script>
 
 </div> <!-- #main-content -->
 
