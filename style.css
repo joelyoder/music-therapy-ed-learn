@@ -320,18 +320,58 @@
     margin-right: 5px;
 }
 
-/* INTERVENTION CARDS */
+/* FILTERING AND SEARCH */
 
-#grid {
-    position: relative;
-    overflow: hidden;
+.searchbox {
+    margin: 0 auto;
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 20px;
 }
-  
-.my-sizer-element {
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
+
+.button-group {
+    margin: 20px auto;
 }
+
+.searchbox, .button-group {
+    width: 90%;
+    max-width: 960px;
+}
+
+.searchbox i {
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.searchbox .quicksearch {
+    flex-grow: 1;
+    height: 40px;
+    border: 0;
+    background-color: #f4f4f4;
+    font-size: 20px;
+}
+
+.filter-button {
+	background-color:#f4f4f4;
+	border-radius:20px;
+	display:inline-block;
+	color:#8a8a8a;
+	font-size:16px;
+	font-weight:bold;
+    padding:10px 20px;
+    border: 0;
+    margin: 8px 0;
+}
+
+.filter-button:hover, .filter-button.is-checked {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 8px 0px #d9d9d9;
+
+}
+
+/* INTERVENTION CARDS */
 
 .card-module {
     position: relative;

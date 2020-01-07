@@ -97,13 +97,14 @@ $posts = get_posts(array(
 
         <?php endif; ?>
     </div><!-- .section -->
-
-    <p><input type="text" class="quicksearch" placeholder="Search" /></p>
+    
+    <div class="searchbox">
+        <i class="fal fa-search"></i><input type="text" class="quicksearch" placeholder="Search for interventions" />
+    </div>
 
     <div class="filters">
 
-        <div class="button-group" data-filter-group="domain">
-            <button class="filter-button" data-filter="">All Domains</button>
+        <div class="button-group domain" data-filter-group="domain">
             <button class="filter-button" data-filter=".cognitive">Cognitive</button>
             <button class="filter-button" data-filter=".emotional">Emotional</button>
             <button class="filter-button" data-filter=".communicative">Communicative</button>
@@ -114,7 +115,6 @@ $posts = get_posts(array(
         </div>
 
         <div class="button-group" data-filter-group="population">
-            <button class="filter-button" data-filter="">All Populations</button>
             <button class="filter-button" data-filter=".addictive-disorders">Addictive Disorders</button>
             <button class="filter-button" data-filter=".educational-settings">Educational Settings</button>
             <button class="filter-button" data-filter=".intellectual-and-developmental-disabilities">Intellectual and Developmental Disabilities</button>
