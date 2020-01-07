@@ -100,27 +100,31 @@ $posts = get_posts(array(
 
     <p><input type="text" class="quicksearch" placeholder="Search" /></p>
 
-    <div class="button-group filter-button-group">
-        <button class="button" data-filter="*">All Domains</button>
-        <button class="button" data-filter=".cognitive">Cognitive</button>
-        <button class="button" data-filter=".emotional">Emotional</button>
-        <button class="button" data-filter=".communicative">Communicative</button>
-        <button class="button" data-filter=".musical">Musical</button>
-        <button class="button" data-filter=".psychosocial">Psychosocial</button>
-        <button class="button" data-filter=".sensorimotor">Sensorimotor</button>
-        <button class="button" data-filter=".spiritual">Spiritual</button>
-    </div>
+    <div class="filters">
 
-    <div class="button-group filter-button-group">
-        <button class="button" data-filter="*">All Populations</button>
-        <button class="button" data-filter=".addictive-disorders">Addictive Disorders</button>
-        <button class="button" data-filter=".educational-settings">Educational Settings</button>
-        <button class="button" data-filter=".intellectual-and-developmental-disabilities">Intellectual and Developmental Disabilities</button>
-        <button class="button" data-filter=".medical-settings">Medical Settings</button>
-        <button class="button" data-filter=".mental-health">Mental Health</button>
-        <button class="button" data-filter=".older-adults">Older Adults</button>
-        <button class="button" data-filter=".physical-disabilities">Physical Disabilities</button>
-        <button class="button" data-filter=".wellness">Wellness</button>
+        <div class="button-group" data-filter-group="domain">
+            <button class="filter-button" data-filter="">All Domains</button>
+            <button class="filter-button" data-filter=".cognitive">Cognitive</button>
+            <button class="filter-button" data-filter=".emotional">Emotional</button>
+            <button class="filter-button" data-filter=".communicative">Communicative</button>
+            <button class="filter-button" data-filter=".musical">Musical</button>
+            <button class="filter-button" data-filter=".psychosocial">Psychosocial</button>
+            <button class="filter-button" data-filter=".sensorimotor">Sensorimotor</button>
+            <button class="filter-button" data-filter=".spiritual">Spiritual</button>
+        </div>
+
+        <div class="button-group" data-filter-group="population">
+            <button class="filter-button" data-filter="">All Populations</button>
+            <button class="filter-button" data-filter=".addictive-disorders">Addictive Disorders</button>
+            <button class="filter-button" data-filter=".educational-settings">Educational Settings</button>
+            <button class="filter-button" data-filter=".intellectual-and-developmental-disabilities">Intellectual and Developmental Disabilities</button>
+            <button class="filter-button" data-filter=".medical-settings">Medical Settings</button>
+            <button class="filter-button" data-filter=".mental-health">Mental Health</button>
+            <button class="filter-button" data-filter=".older-adults">Older Adults</button>
+            <button class="filter-button" data-filter=".physical-disabilities">Physical Disabilities</button>
+            <button class="filter-button" data-filter=".wellness">Wellness</button>
+        </div>
+
     </div>
 
     <div class="section campfire grid">
