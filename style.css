@@ -568,23 +568,3 @@ background: #9CCB46;
 .disabled .card-content .category.cognitive, .disabled .card-content .category.communicative, .disabled .card-content .category.emotional, .disabled .card-content .category.musical, .disabled .card-content .category.psychosocial, .disabled .card-content .category.sensorimotor, .disabled .card-content .category.spiritual {
     background: #666666;
 }
-
-ul {
-    margin: 0;
-    padding: 0 0 1em 0;
-    list-style-type: none;
-  }
-  li {
-    display: inline-block;
-    padding: 1em;
-    margin: 0;
-    background-color: #f0f0f0;
-    border-radius: 4px;
-  }
-  li:hover {
-    background-color: #e0e0e0;
-  }
-  .active {
-    background-color: red;
-    border: 1px solid red;
-  }

@@ -98,22 +98,32 @@ $posts = get_posts(array(
         <?php endif; ?>
     </div><!-- .section -->
 
-    <ul class="filter-menu">
+    <p><input type="text" class="quicksearch" placeholder="Search" /></p>
 
-    <!-- For filtering controls add -->
+    <div class="button-group filter-button-group">
+        <button class="button" data-filter="*">All Domains</button>
+        <button class="button" data-filter=".cognitive">Cognitive</button>
+        <button class="button" data-filter=".emotional">Emotional</button>
+        <button class="button" data-filter=".communicative">Communicative</button>
+        <button class="button" data-filter=".musical">Musical</button>
+        <button class="button" data-filter=".psychosocial">Psychosocial</button>
+        <button class="button" data-filter=".sensorimotor">Sensorimotor</button>
+        <button class="button" data-filter=".spiritual">Spiritual</button>
+    </div>
 
-        <li data-filter="all"> All items </li>
+    <div class="button-group filter-button-group">
+        <button class="button" data-filter="*">All Populations</button>
+        <button class="button" data-filter=".addictive-disorders">Addictive Disorders</button>
+        <button class="button" data-filter=".educational-settings">Educational Settings</button>
+        <button class="button" data-filter=".intellectual-and-developmental-disabilities">Intellectual and Developmental Disabilities</button>
+        <button class="button" data-filter=".medical-settings">Medical Settings</button>
+        <button class="button" data-filter=".mental-health">Mental Health</button>
+        <button class="button" data-filter=".older-adults">Older Adults</button>
+        <button class="button" data-filter=".physical-disabilities">Physical Disabilities</button>
+        <button class="button" data-filter=".wellness">Wellness</button>
+    </div>
 
-        <li data-filter="sensorimotor"> Sensorimotor </li>
-
-        <li data-filter="2"> People</li>
-
-        <li data-filter="3"> Cities </li>
-    </ul>
-
-<input type="text" name="filtr-search" value="" placeholder="Your search" data-search="">
-
-    <div class="section campfire filtr-container">
+    <div class="section campfire grid">
 
         <!-- Card repeater -->
         <?php if( $posts ): ?>
@@ -141,15 +151,18 @@ $posts = get_posts(array(
                     }
                     
                     // List populations and format for card and shuffle
-                    $population_list = get_the_terms( $post->ID, 'population' );
-                    $population_terms_string = join(', ', wp_list_pluck($population_list, 'name'));
+                    $population_terms = get_the_terms( $post->ID, 'population' );
+                    $population_terms_string = join(', ', wp_list_pluck($population_terms, 'name'));
+                    $population_terms_classes = join(' ', wp_list_pluck($population_terms, 'slug'));
 
                     // List equipment and format for card and shuffle
                     $equipment_list = get_the_terms( $post->ID, 'equipment' );
                     $equipment_terms_string = join(', ', wp_list_pluck($equipment_list, 'name'));
+                    $equipment_terms_classes = join(' ', wp_list_pluck($equipment_list, 'slug'));
+
                     ?>
                     
-                    <div class="card-module filtr-item<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?>" <?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>style="order:-1;"<?php endif; ?> data-category='<?php echo $equipment_terms_string . ', ' . $population_terms_string . ', ' . $method . ', ' . $domain ?>' data-sort="<?php the_title(); ?>">
+                <div class="card-module grid-item<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?> <?php echo $equipment_terms_classes . ' ' . $population_terms_classes . ' ' . $method . ' ' . $domain ?>" data-owned="<?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>1<?php else : ?>2<?php endif; ?>">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
                             <?php
@@ -226,7 +239,7 @@ $posts = get_posts(array(
         <?php endif; ?>
     </div><!-- .section -->
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/filterizr/1.3.4/jquery.filterizr.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
 </div> <!-- #main-content -->
 
