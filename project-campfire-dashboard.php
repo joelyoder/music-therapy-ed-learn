@@ -67,9 +67,11 @@ $posts = get_posts(array(
                                     $text = get_sub_field('text');
                                     $url = get_sub_field('url');
                                     $color = get_sub_field('color');
+                                    $external_link = get_sub_field('external_link');
+                                    $icon = get_sub_field('icon');
                                     ?>
 
-                                    <a class="button <?php echo $color; ?>" href="<?php echo $url; ?>"><?php echo $text; ?></a>
+                                    <a class="button <?php echo $color; ?>" href="<?php echo $url; ?>"<?php if( $external_link ): ?>target="_blank"<?php endif; ?>><?php echo $text; ?><i class="fas fa-<?php echo $icon; ?>"></i></a>
 
                                     <?php endwhile; ?>
 
@@ -105,6 +107,7 @@ $posts = get_posts(array(
     <div class="filters">
 
         <div class="button-group domain" data-filter-group="domain">
+            <p class="filter-label">Domains</p>
             <button class="filter-button" data-filter=".cognitive">Cognitive</button>
             <button class="filter-button" data-filter=".emotional">Emotional</button>
             <button class="filter-button" data-filter=".communicative">Communicative</button>
@@ -115,6 +118,7 @@ $posts = get_posts(array(
         </div>
 
         <div class="button-group" data-filter-group="population">
+            <p class="filter-label">Populations</p>
             <button class="filter-button" data-filter=".addictive-disorders">Addictive Disorders</button>
             <button class="filter-button" data-filter=".educational-settings">Educational Settings</button>
             <button class="filter-button" data-filter=".intellectual-and-developmental-disabilities">Intellectual and Developmental Disabilities</button>
@@ -124,6 +128,32 @@ $posts = get_posts(array(
             <button class="filter-button" data-filter=".physical-disabilities">Physical Disabilities</button>
             <button class="filter-button" data-filter=".wellness">Wellness</button>
         </div>
+    </div>
+    
+    <div class="select-filters">
+
+        <select class="filters-select" value-group="domain">
+            <option value="*">All Domains</option>
+            <option value=".cognitive">Cognitive</option>
+            <option value=".emotional">Emotional</option>
+            <option value=".communicative">Communicative</option>
+            <option value=".musical">Musical</option>
+            <option value=".psychosocial">Psychosocial</option>
+            <option value=".sensorimotor">Sensorimotor</option>
+            <option value=".spiritual">Spiritual</option>
+        </select>
+
+        <select class="filters-select" value-group="population">
+            <option value="*">All Populations</option>
+            <option value=".addictive-disorders">Addictive Disorders</option>
+            <option value=".educational-settings">Educational Settings</option>
+            <option value=".intellectual-and-developmental-disabilities">Intellectual and Developmental Disabilities</option>
+            <option value="medical-settings">Medical Settings</option>
+            <option value=".mental-health">Mental Health</option>
+            <option value=".older-adults">Older Adults</option>
+            <option value=".physical-disabilities">Physical Disabilities</option>
+            <option value=".wellness">Wellness</option>
+        </select>
 
     </div>
 

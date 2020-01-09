@@ -9,6 +9,15 @@ jQuery(function($) {
             owned: '[data-owned] parseInt',
             number: '.title'
         },
+        // no transitions
+        transitionDuration: 0,
+        // disable scale transform transition when hiding
+        hiddenStyle: {
+            opacity: 0
+        },
+        visibleStyle: {
+            opacity: 1
+        },
         // sort by color then number
         sortBy: [ 'owned', 'title' ]
     });
@@ -43,6 +52,27 @@ jQuery(function($) {
     if ( index != -1 ) {
         filters.splice( index, 1 );
     }
+    }
+
+    $('.select-filters').on( 'change', function( event ) {
+    var $select = $( event.target );
+    // get group key
+    var filterGroup = $select.attr('value-group');
+    // set filter for group
+    filters[ filterGroup ] = event.target.value;
+    // combine filters
+    var filterValue = concatValues( filters );
+    // set filter for Isotope
+    $grid.isotope({ filter: filterValue });
+    });
+
+    // flatten object by concatting values
+    function concatValues( obj ) {
+    var value = '';
+    for ( var prop in obj ) {
+        value += obj[ prop ];
+    }
+    return value;
     }
 
     // quick search regex

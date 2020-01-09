@@ -281,7 +281,6 @@
         padding: 35px 40px;
         background-image: linear-gradient(165deg,#ffffff 75%,#FC7405 75%);
         box-shadow: none;
-        margin-bottom: 40px;
     }
 }
 
@@ -320,14 +319,44 @@
     margin-right: 5px;
 }
 
+.header-card .button {
+    margin-bottom: 10px;
+}
+
+.header-card .button i {
+    padding-left: 10px;
+}
+
 /* FILTERING AND SEARCH */
+
+/* Hide filter buttons on mobile */
+.filters {
+    display: none;       
+}
+
+/* Hide select boxes on desktop, show filter buttons */
+@media (min-width: 981px) {
+    .filters {
+        display: initial;
+    }
+    .select-filters {
+        display: none;
+    }
+}
 
 .searchbox {
     margin: 0 auto;
     display: flex;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #dbdbdb;
+    width: 90%;
+    max-width: 960px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    padding: 10px;
     margin-bottom: 20px;
+}
+
+.searchbox:hover {
+    background-color: #ffffff;
 }
 
 .button-group {
@@ -349,26 +378,44 @@
     flex-grow: 1;
     height: 40px;
     border: 0;
-    background-color: #f4f4f4;
+    background-color: rgba(255, 255, 255, 0);
     font-size: 20px;
 }
 
+.filter-label {
+    padding: 0 5px;
+    font-weight: bold;
+    color: #246c99;
+}
+
 .filter-button {
-	background-color:#f4f4f4;
-	border-radius:20px;
-	display:inline-block;
-	color:#8a8a8a;
-	font-size:16px;
-	font-weight:bold;
-    padding:10px 20px;
+	background-color: #ffffff;
+    border-radius: 10px;
+    color: #4e4e4e;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
     border: 0;
-    margin: 8px 0;
+    margin: 5px;
 }
 
 .filter-button:hover, .filter-button.is-checked {
-    background-color: #ffffff;
-    box-shadow: 0px 0px 8px 0px #d9d9d9;
+    background-color: #246c99;
+    color: #ffffff;
+}
 
+.select-filters {
+    margin: 0 auto 30px auto;
+    width: 90%;
+}
+
+.filters-select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 10px;
 }
 
 /* INTERVENTION CARDS */
@@ -570,6 +617,7 @@ background: #9CCB46;
     border-radius: 5px;
     box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-out;
+	cursor: pointer;
 }
 
 .card-module .card-content .card-access .button:hover {
