@@ -45,54 +45,59 @@ $posts = get_posts(array(
                 $video = get_sub_field('video');
                 $unlock_id = get_sub_field('unlock_id');
                 $tags = get_sub_field('tags');
+                $without_tags = get_sub_field('without_tags');
 
                 ?>
 
-                <?php if( accessally_has_any_tag_id("$tags") || empty($tags) ): ?>
+                <?php if( !accessally_has_any_tag_id("$without_tags") || empty($without_tags) ): ?>
 
-                    <div class="header-card">
+                    <?php if( accessally_has_any_tag_id("$tags") || empty($tags) ): ?>
 
-                        <div class="message">
-                            <h1><strong>Project</strong> Campfire <i class="fad fa-fire-alt" style="--fa-primary-color: #FFCA51; --fa-secondary-color: #fc7405; --fa-secondary-opacity: 1; font-size: 30px;" aria-hidden="true"></i></h1>
-                            <?php echo $message; ?>
+                        <div class="header-card">
 
-                            <!--button repeater-->
-                            <?php if( have_rows('buttons') ): ?>
+                            <div class="message">
+                                <h1><strong>Project</strong> Campfire <i class="fad fa-fire-alt" style="--fa-primary-color: #FFCA51; --fa-secondary-color: #fc7405; --fa-secondary-opacity: 1; font-size: 30px;" aria-hidden="true"></i></h1>
+                                <?php echo $message; ?>
 
-                                <p class="button-bar">
+                                <!--button repeater-->
+                                <?php if( have_rows('buttons') ): ?>
 
-                                    <?php while( have_rows('buttons') ): the_row();
+                                    <p class="button-bar">
 
-                                    //vars
-                                    $text = get_sub_field('text');
-                                    $url = get_sub_field('url');
-                                    $color = get_sub_field('color');
-                                    $external_link = get_sub_field('external_link');
-                                    $icon = get_sub_field('icon');
-                                    ?>
+                                        <?php while( have_rows('buttons') ): the_row();
 
-                                    <a class="button <?php echo $color; ?>" href="<?php echo $url; ?>"<?php if( $external_link ): ?>target="_blank"<?php endif; ?>><?php echo $text; ?><i class="fas fa-<?php echo $icon; ?>"></i></a>
+                                        //vars
+                                        $text = get_sub_field('text');
+                                        $url = get_sub_field('url');
+                                        $color = get_sub_field('color');
+                                        $external_link = get_sub_field('external_link');
+                                        $icon = get_sub_field('icon');
+                                        ?>
 
-                                    <?php endwhile; ?>
+                                        <a class="button <?php echo $color; ?>" href="<?php echo $url; ?>"<?php if( $external_link ): ?>target="_blank"<?php endif; ?>><?php echo $text; ?><i class="fas fa-<?php echo $icon; ?>"></i></a>
 
-                                </p>
+                                        <?php endwhile; ?>
 
-                            <?php endif; ?>
+                                    </p>
 
-                            <!--unlocks counter-->
-                            <?php if( !empty($unlock_id) ): ?>
-                                <p><span style="display: inline-block;"><span class="count"><?php echo do_shortcode( '[accessally_field_value operation_id="'. $unlock_id .'"]' ); ?></span> <strong>UNLOCKS AVAILABLE</strong></span></p>
-                            <?php endif; ?>
+                                <?php endif; ?>
+
+                                <!--unlocks counter-->
+                                <?php if( !empty($unlock_id) ): ?>
+                                    <p><span style="display: inline-block;"><span class="count"><?php echo do_shortcode( '[accessally_field_value operation_id="'. $unlock_id .'"]' ); ?></span> <strong>UNLOCKS AVAILABLE</strong></span></p>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="video">
+                                <div class="embed-container">
+                                    <?php echo $video ?>
+                                </div><!-- .embed-container -->
+                            </div>
+
                         </div>
 
-                        <div class="video">
-                            <div class="embed-container">
-                                <?php echo $video ?>
-                            </div><!-- .embed-container -->
-                        </div>
-
-                    </div>
-
+                    <?php endif; ?>
+                    
                 <?php endif; ?>
 
             <?php endwhile; ?>
@@ -101,10 +106,16 @@ $posts = get_posts(array(
     </div><!-- .section -->
     
     <div class="searchbox">
-        <i class="fal fa-search"></i><input type="text" class="quicksearch" placeholder="Search for interventions" />
+        <i class="fal fa-search"></i><input type="text" class="quicksearch" placeholder="Search for ideas" />
     </div>
 
     <div class="filters">
+
+        <div class="button-group" data-filter-group="type">
+            <p class="filter-label">Type</p>
+            <button class="filter-button" data-filter=".idea">Idea</button>
+            <button class="filter-button" data-filter=".jamalong">Jam Along</button>
+        </div>
 
         <div class="button-group domain" data-filter-group="domain">
             <p class="filter-label">Domains</p>
@@ -167,6 +178,7 @@ $posts = get_posts(array(
                     setup_postdata( $post );
                     $description = get_field('description');
                     $freebie = get_field('freebie');
+					$jam_along = get_field('jam_along');
                     $operation_id = get_field('operation_id');
                     $tag = get_field('tag');
 
@@ -196,35 +208,63 @@ $posts = get_posts(array(
 
                     ?>
                     
-                <div class="card-module grid-item<?php if( !accessally_has_any_tag_id("104,2207,1879,$tag") && !$freebie ): ?> disabled<?php endif; ?> <?php echo $equipment_terms_classes . ' ' . $population_terms_classes . ' ' . $method . ' ' . $domain ?>" data-owned="<?php if( accessally_has_any_tag_id("$tag") || $freebie ): ?>1<?php else : ?>2<?php endif; ?>">
+                <div class="card-module grid-item<?php
+                    // Set card styling to disabled if you do not possess VIP, ProCamp subscriber tags
+                    // or the tag for an individual idea and ensure freebies are not disabled
+                    if( !accessally_has_any_tag_id("104,2207,1879,2529,$tag") && !$freebie ):
+                        ?> disabled<?php
+                    endif;
+
+                    // Dump all of the taxonomies to classes for isotope to filter
+                    echo ' ' . $equipment_terms_classes . ' ' . $population_terms_classes . ' ' . $method . ' ' . $domain;
+                    
+                    // Add the jam-along and idea classes for filtering
+                    if( $jam_along ):
+                        echo ' jam-along';
+                    else:
+                        echo ' idea';
+                    endif;
+                    ?>" data-owned="<?php
+                    // Reorder the cards in the dashboard to ensure owned and freebie ideas show up first
+                    if( accessally_has_any_tag_id("$tag") || $freebie ):
+                        ?>1<?php
+                    else:
+                        ?>2<?php
+                    endif;
+                    ?>">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
                             <?php
-                            if ( !empty($domain)) :
-                                switch ($domain) :
-                                    case "cognitive":
-                                        echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Cognitive-Intervention-Cover.png" alt="" />';
-                                        break;
-                                    case "communicative":
-                                        echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Communication-Intervention-Cover.png" alt="" />';
-                                        break;
-                                    case "emotional":
-                                        echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Emotional-Intervention-Cover.png" alt="" />';
-                                        break;
-                                    case "musical":
-                                        echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Musical-Intervention-Cover.png" alt="" />';
-                                        break;
-                                    case "psychosocial":
-                                        echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Pscyhosocial-Intervention-Cover.png" alt="" />';
-                                        break;
-                                    case "sensorimotor":
-                                        echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Sensorimotor-Intervention-Cover.png" alt="" />';
-                                        break;
-                                    case "spiritual":
-                                        echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Spiritual-Intervention-Cover.png" alt="" />';
-                                        break;
+                            // Set the image to the domain unless it's a Jam Along
+                            // @todo: fix the manually set URLs to an ACF settings page
+                            if ( !empty($domain) && !$jam_along ) :
+								switch ($domain) :
+									case "cognitive":
+										echo '<img src="/wp-content/uploads/2019/11/Cognitive-Intervention-Cover.png" alt="" />';
+										break;
+									case "communicative":
+										echo '<img src="/wp-content/uploads/2019/11/Communication-Intervention-Cover.png" alt="" />';
+										break;
+									case "emotional":
+										echo '<img src="/wp-content/uploads/2019/11/Emotional-Intervention-Cover.png" alt="" />';
+										break;
+									case "musical":
+										echo '<img src="/wp-content/uploads/2019/11/Musical-Intervention-Cover.png" alt="" />';
+										break;
+									case "psychosocial":
+										echo '<img src="/wp-content/uploads/2019/11/Pscyhosocial-Intervention-Cover.png" alt="" />';
+										break;
+									case "sensorimotor":
+										echo '<img src="h/wp-content/uploads/2019/11/Sensorimotor-Intervention-Cover.png" alt="" />';
+										break;
+									case "spiritual":
+										echo '<img src="/wp-content/uploads/2019/11/Spiritual-Intervention-Cover.png" alt="" />';
+										break;
                                 endswitch;
-                            endif; ?>
+                            // Set the image to Jam Along
+							elseif ( !empty($domain) && $jam_along) :
+								echo '<img src="/wp-content/uploads/2020/11/Jam-Along-Intervention-Cover.jpg" alt="" />';
+							endif; ?>
                         </div>
 
                         <!-- Card Content-->
@@ -255,10 +295,10 @@ $posts = get_posts(array(
                                     <a class="button orange" href="<?php the_permalink(); ?>">Access <i class="fas fa-fire-alt"></i></a>
                                 <?php elseif( $freebie ): ?>
                                     <a class="button orange" href="<?php the_permalink(); ?>">FREE <i class="fas fa-fire-alt"></i></a>
-                                <?php elseif( accessally_has_any_tag_id("104,2207,1879") ) : ?>
+                                <?php elseif( accessally_has_any_tag_id("104,2207,1879,2529") ) : ?>
                                     <?php echo do_shortcode( '[accessally_custom_operation operation_id="'. $operation_id .'"]' ); ?>
                                 <?php else : ?>
-                                    <a class="button" href="">Coming Soon <i class="fas fa-lock"></i></a>
+                                    <a class="button" href="https://musictherapyed.com/campfire/">Upgrade <i class="fas fa-lock"></i></a>
                                 <?php endif; ?>
                             </div>
                         </div>
