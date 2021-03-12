@@ -114,7 +114,7 @@ $posts = get_posts(array(
         <div class="button-group" data-filter-group="type">
             <p class="filter-label">Type</p>
             <button class="filter-button" data-filter=".idea">Idea</button>
-            <button class="filter-button" data-filter=".jamalong">Jam Along</button>
+            <button class="filter-button" data-filter=".jam-along">Jam Along</button>
         </div>
 
         <div class="button-group domain" data-filter-group="domain">
@@ -217,7 +217,7 @@ $posts = get_posts(array(
 
                     // Dump all of the taxonomies to classes for isotope to filter
                     echo ' ' . $equipment_terms_classes . ' ' . $population_terms_classes . ' ' . $method . ' ' . $domain;
-                    
+
                     // Add the jam-along and idea classes for filtering
                     if( $jam_along ):
                         echo ' jam-along';
@@ -255,7 +255,7 @@ $posts = get_posts(array(
 										echo '<img src="/wp-content/uploads/2019/11/Pscyhosocial-Intervention-Cover.png" alt="" />';
 										break;
 									case "sensorimotor":
-										echo '<img src="h/wp-content/uploads/2019/11/Sensorimotor-Intervention-Cover.png" alt="" />';
+										echo '<img src="/wp-content/uploads/2019/11/Sensorimotor-Intervention-Cover.png" alt="" />';
 										break;
 									case "spiritual":
 										echo '<img src="/wp-content/uploads/2019/11/Spiritual-Intervention-Cover.png" alt="" />';
