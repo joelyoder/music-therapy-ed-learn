@@ -146,25 +146,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_610c12ec243c6",
-            "label": "Open in new tab?",
-            "name": "button_new_tab",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_5fb2dc1a89d1c",
             "label": "Author",
             "name": "author",
@@ -308,5 +289,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1628182323
+    "modified": 1628182839
 }
