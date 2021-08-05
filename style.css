@@ -101,13 +101,13 @@
   
 .intervention-sidebar {
     grid-area: sidebar;
+    margin-right: 30px;
 }
 
 .intervention-sidebar .sticky-container {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    margin-right: 30px;
 }
 
 @media only screen and (max-width: 767px) {
