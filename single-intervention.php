@@ -101,7 +101,7 @@ if (!empty($domain_attrs)){
 				</ul>
 			<?php endif; ?>
 			<?php if(get_field('button_visibility')) : ?>
-				<a class="button navy" href="<?php the_field('button_url') ?>"><?php the_field('button_text') ?></a>
+				<a class="button navy" href="<?php the_field('button_url') ?>" <?php echo get_field('button_new_tab') ? 'target="_blank" rel="noopener"' : ''; ?>><?php the_field('button_text') ?></a>
 			<?php endif; ?>
 		</div><!-- .intervention-sidebar -->
 		<div class="intervention-content">
