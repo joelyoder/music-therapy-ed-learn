@@ -101,20 +101,22 @@
   
 .intervention-sidebar {
     grid-area: sidebar;
-    height: 110vh;
-    min-height: 200px;
-    overflow: auto;
+}
+
+.intervention-sidebar .sticky-container {
     position: -webkit-sticky;
     position: sticky;
-    top: 5%;
+    top: 0;
+    margin-right: 30px;
 }
 
 @media only screen and (max-width: 767px) {
     .intervention-sidebar {
         padding: 30px;
-        height: auto;
-        min-height: auto;
-        overflow: auto;
+        margin-right: 0;
+    }
+
+    .intervention-sidebar .sticky-container {
         position: inherit;
         top: 0;
     }
