@@ -107,16 +107,20 @@ if (!empty($domain_attrs)){
 			</div>
 		</div><!-- .intervention-sidebar -->
 		<div class="intervention-content">
-			<h2>Instructions</h2>
-			<?php echo $instructions ?>
+			<?php if( $instructions ) : ?>
+				<h2>Instructions</h2>
+				<?php echo $instructions ?>
+			<?php endif; ?>
 
-			<h2>Resources</h2>
-			<?php echo $resources ?>
-			<?php if( get_field('video') ) : ?>
-				<br >
-				<div class="embed-container">
-					<?php echo $video ?>
-				</div><!-- .embed-container -->
+			<?php if( $resources || $video ) : ?>
+				<h2>Resources</h2>
+				<?php echo $resources ?>
+				<?php if( get_field('video') ) : ?>
+					<br >
+					<div class="embed-container">
+						<?php echo $video ?>
+					</div><!-- .embed-container -->
+				<?php endif; ?>
 			<?php endif; ?>
 		</div><!-- .intervention-content -->
 	</div><!-- .intervention-grid-container -->
