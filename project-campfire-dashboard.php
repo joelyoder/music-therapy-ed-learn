@@ -143,6 +143,12 @@ $posts = get_posts(array(
     
     <div class="select-filters">
 
+        <select class="filters-select" value-group="type">
+            <option value="*">Both Types</option>
+            <option value=".idea">Idea</option>
+            <option value=".jam-along">Jam Along</option>
+        </select>
+
         <select class="filters-select" value-group="domain">
             <option value="*">All Domains</option>
             <option value=".cognitive">Cognitive</option>
@@ -159,7 +165,7 @@ $posts = get_posts(array(
             <option value=".addictive-disorders">Addictive Disorders</option>
             <option value=".educational-settings">Educational Settings</option>
             <option value=".intellectual-and-developmental-disabilities">Intellectual and Developmental Disabilities</option>
-            <option value="medical-settings">Medical Settings</option>
+            <option value=".medical-settings">Medical Settings</option>
             <option value=".mental-health">Mental Health</option>
             <option value=".older-adults">Older Adults</option>
             <option value=".physical-disabilities">Physical Disabilities</option>
