@@ -3,9 +3,9 @@ function mte_enqueue_styles() {
  
     $parent_style = 'divi-style';
  
-    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css?v=2' );
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'child-style',
-        get_stylesheet_directory_uri() . '/style.css',
+        get_stylesheet_directory_uri() . '/dist/assets/css/app.css',
         array( $parent_style ),
         wp_get_theme()->get('Version')
     );

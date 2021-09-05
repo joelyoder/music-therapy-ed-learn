@@ -1,0 +1,169 @@
+/*****DASHBOARD TEMPLATE*****/
+
+#main-content.campfire {
+    background-color: #f4f4f4 !important; /*Override Divi*/
+}
+
+.section.campfire {
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+@media only screen and (max-width: 980px) {
+    .section.campfire {
+        padding-top: 0px;
+    }
+}
+
+/* HEADER CARDS */
+
+.header-card {
+    padding: 20px;
+    background-image: linear-gradient(32deg,#ffffff 60%,#FC7405 60%);
+    background-color: #ffffff;
+    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
+    max-width: 960px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 980px) {
+    .header-card {
+        padding: 35px 40px;
+        background-image: linear-gradient(165deg,#ffffff 75%,#FC7405 75%);
+        box-shadow: none;
+    }
+}
+
+.header-card .message, .header-card .video {
+    position: relative;
+}
+
+.header-card .message {
+    margin-bottom: 30px;
+}
+
+@media (min-width: 981px) {
+    .header-card .message, .header-card .video {
+        width: 47.25%;
+        float: left;
+        position: relative;
+    }
+
+    .header-card .message {
+        padding: 40px 30px 30px 30px;
+        margin-right: 5.5%;
+        margin-bottom: 0;
+    }
+}
+
+.header-card .message h1 {
+    line-height: 1.8em;
+}
+
+.header-card .message .count {
+    background: #FFBB1E;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.header-card .button {
+    margin-bottom: 10px;
+}
+
+.header-card .button i {
+    padding-left: 10px;
+}
+
+/* FILTERING AND SEARCH */
+
+/* Hide filter buttons on mobile */
+.filters {
+    display: none;       
+}
+
+/* Hide select boxes on desktop, show filter buttons */
+@media (min-width: 981px) {
+    .filters {
+        display: initial;
+    }
+    .select-filters {
+        display: none;
+    }
+}
+
+.searchbox {
+    margin: 0 auto;
+    display: flex;
+    width: 90%;
+    max-width: 960px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.searchbox:hover {
+    background-color: #ffffff;
+}
+
+.button-group {
+    margin: 20px auto;
+}
+
+.searchbox, .button-group {
+    width: 90%;
+    max-width: 960px;
+}
+
+.searchbox i {
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.searchbox .quicksearch {
+    flex-grow: 1;
+    height: 40px;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 20px;
+}
+
+.filter-label {
+    padding: 0 5px;
+    font-weight: bold;
+    color: #246c99;
+}
+
+.filter-button {
+	background-color: #ffffff;
+    border-radius: 10px;
+    color: #4e4e4e;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 0;
+    margin: 5px;
+}
+
+.filter-button:hover, .filter-button.is-checked {
+    background-color: #246c99;
+    color: #ffffff;
+}
+
+.select-filters {
+    margin: 0 auto 30px auto;
+    width: 90%;
+}
+
+.filters-select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 10px;
+}
