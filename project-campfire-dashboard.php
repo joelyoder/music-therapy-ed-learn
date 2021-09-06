@@ -34,10 +34,7 @@ if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_ta
             </div>
 
             <div class="mobile-filters">
-                <?php echo facetwp_display( 'facet', 'procamp_search' ); ?>
-                <?php echo facetwp_display( 'facet', 'procamp_type_mobile' ); ?>
-                <?php echo facetwp_display( 'facet', 'procamp_domains_mobile' ); ?>
-                <?php echo facetwp_display( 'facet', 'procamp_populations_mobile' ); ?>
+                <button class="facetwp-flyout-open button">Filter Ideas</button>
             </div>
         <?php else : ?>
             <p>Install and configure FacetWP to enable filtering.</p>

@@ -38,6 +38,7 @@
             height: 100%;
 
             @media only screen and (max-width: 980px) {
+                border-radius: 0;
                 padding: 35px 40px;
                 background-image: linear-gradient(165deg,#ffffff 75%,$campfire-orange 75%);
                 box-shadow: none;
@@ -98,114 +99,21 @@
         .sticky-wrapper {
             position: sticky;
             top: 40px;
-
-            .facetwp-facet {
-                margin-bottom: 20px;
-            }
-
-            .facetwp-checkbox,
-            .facetwp-radio {
-                background: none;
-                padding-left: 0;
-                font-size: 1.1em;
-                margin-bottom: 8px;
-                color: #888;
-        
-                &:hover,
-                &:focus {
-                    color: $mte-pink;
-                    font-weight: 600;
-                }
-        
-                &.checked {
-                    background: none;
-                    color: $mte-blue;
-                    font-weight: 600;
-                }
-        
-                .facetwp-counter {
-                    display: none;
-                }
-            }
-
-            .facetwp-checkbox {
-                padding-left: 25px;
-
-                &:before {
-                    position:absolute;
-                    margin-left: -25px;
-                    content: "\f0c8";
-                    font-family: 'Font Awesome 5 Pro';
-                }
-
-                &.checked::before {
-                    content: "\f14a";
-                }
-            }
-
-            .facetwp-radio {
-                padding-left: 25px;
-
-                &:before {
-                    position:absolute;
-                    margin-left: -25px;
-                    content: "\f111";
-                    font-family: 'Font Awesome 5 Pro';
-                }
-
-                &.checked::before {
-                    content: "\f192";
-                }
-            }
-        
-            .facetwp-input-wrap {
-                width: 100%;
-            }
-        
-            .facetwp-icon {
-                right: 15px;
-            }
-        
-            .facetwp-search {
-                border-top: none;
-                border-left: none;
-                border-right: none;
-                border-bottom: 3px solid $mte-blue;
-                border-radius: 10px 10px 0 0;
-                padding: 15px;
-                font-size: 1.1em;
-                width: 100%;
-                background-color: unset;
-        
-                &:focus,
-                &:active,
-                &:hover {
-                    background-color: #fff;
-                }
-        
-                &:focus,
-                &:active {
-                    border-color: $mte-pink;
-                }
-            }
         }
 
         .mobile-filters {
             display: none;
-            
-            .facetwp-facet {
-                margin-bottom: 15px;
-            }
 
-            .facetwp-input-wrap {
-                width: 100%;
-            }
-
-            .facetwp-dropdown,
-            .facetwp-search {
+            .facetwp-flyout-open.button {
                 font-size: 1em;
-                width: 100%;
-                padding: 10px;
+                padding: 15px 25px;
+                border: none;
+
+                &:after {
+                    content: "\f0b0";
+                    font-family: 'Font Awesome 5 Pro';
+                    margin-left: 10px;
+                }
             }
         }
 
@@ -217,7 +125,8 @@
             }
 
             .mobile-filters {
-                display: initial;
+                display: flex;
+                justify-content: center;
             }
         }
     }
@@ -227,6 +136,103 @@
 
         @media only screen and (max-width: 980px) {
             padding: 0 20px 40px 20px;
+            justify-content: center;
         }
     }
-}  
+}
+
+/* Facet Styling */
+.facetwp-facet {
+    margin-bottom: 20px;
+}
+
+.facetwp-checkbox,
+.facetwp-radio {
+    background: none !important; //Override default FacetWP icons
+    padding-left: 0;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #888;
+
+    &:hover,
+    &:focus {
+        color: $mte-pink;
+        font-weight: 600;
+    }
+
+    &.checked {
+        background: none;
+        color: $mte-blue;
+        font-weight: 600;
+    }
+
+    .facetwp-counter {
+        display: none;
+    }
+}
+
+.facetwp-checkbox {
+    padding-left: 25px;
+
+    &:before {
+        position:absolute;
+        margin-left: -25px;
+        content: "\f0c8";
+        font-family: 'Font Awesome 5 Pro';
+    }
+
+    &.checked::before {
+        content: "\f14a";
+    }
+}
+
+.facetwp-radio {
+    padding-left: 25px;
+
+    &:before {
+        position:absolute;
+        margin-left: -25px;
+        content: "\f111";
+        font-family: 'Font Awesome 5 Pro';
+    }
+
+    &.checked::before {
+        content: "\f192";
+    }
+}
+
+.facetwp-input-wrap {
+    width: 100%;
+}
+
+.facetwp-icon {
+    right: 15px;
+}
+
+.facetwp-facet input.facetwp-search {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid $mte-blue;
+    border-radius: 10px 10px 0 0;
+    padding: 15px;
+    font-size: 1.1em;
+    width: 100%;
+    background-color: unset;
+
+    &:focus,
+    &:active,
+    &:hover {
+        background-color: #fff;
+    }
+
+    &:focus,
+    &:active {
+        border-color: $mte-pink;
+    }
+}
+
+.facetwp-flyout-wrap {
+    padding-left: 8px;
+    padding-right: 8px;
+}
