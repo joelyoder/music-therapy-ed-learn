@@ -11,15 +11,3 @@ function mte_enqueue_styles() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'mte_enqueue_styles' );
-
-/*function mte_enqueue_scripts() {
-    if ( is_page_template( 'project-campfire-dashboard.php' ) ) {
-    wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/isotope.js', array( 'jquery'),'',true );
-    }
-}
-
-add_action( 'wp_enqueue_scripts', 'mte_enqueue_scripts' );
-*/
- 
-//you can add custom functions below this line:
-

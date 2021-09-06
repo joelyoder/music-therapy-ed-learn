@@ -10,18 +10,7 @@ get_header();
 
 ?>
 
-<script type="text/javascript">
-    (function($) {
-    $(window).load(function() {
-        $('.card-module').hover(function() {
-        $(this).find('.description').stop().animate({
-            height: "toggle",
-            opacity: "toggle"
-        }, 300);
-        });
-        });
-    })(jQuery);
-</script>
+
 
 <div id="main-content" class="campfire">
 

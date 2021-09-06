@@ -8,230 +8,215 @@
     width: 320px;
     height: 480px;
     margin: 0px 20px 30px 20px;
-    /* Shadow */
-    -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.15);
-    /* Transitions */
-    -webkit-transition: all 0.3s linear 0s;
-    -moz-transition: all 0.3s linear 0s;
-    -ms-transition: all 0.3s linear 0s;
-    -o-transition: all 0.3s linear 0s;
     transition: all 0.3s linear 0s;
     /* Flexbox settings */
-    -webkit-order: 0;
-    -ms-flex-order: 0;
     order: 0;
-    -webkit-flex: 0 1 auto;
-    -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    -webkit-align-self: auto;
-    -ms-flex-item-align: auto;
     align-self: auto;
-}
 
-.card-module:hover,
-.hover {
-    -webkit-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
-}
+    &:hover,
+    &.hover {
+        box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.5);
 
-.card-module:hover .thumbnail img,
-.hover .thumbnail img {
-    opacity: 0.5;
-}
+        .card-content .description {
+            max-height: 500px;
+            transition: max-height 0.25s ease-in;
+        }
+    }
 
-.card-module .thumbnail {
-    background: #FFFFFF;
-    height: 250px;
-    overflow: hidden;
-}
+    &:hover .thumbnail img,
+    .hover .thumbnail img {
+        opacity: 0.5;
+    }
 
-.card-module .thumbnail img {
-    display: block;
-    width: 120%;
-    height: 100%;
-    object-fit: cover;
-    -webkit-transition: all 0.3s linear 0s;
-    -moz-transition: all 0.3s linear 0s;
-    -ms-transition: all 0.3s linear 0s;
-    -o-transition: all 0.3s linear 0s;
-    transition: all 0.3s linear 0s;
-}
+    .thumbnail {
+        background: #FFFFFF;
+        height: 250px;
+        overflow: hidden;
 
-.card-module .card-content {
-    position: absolute;
-    bottom: 0;
-    background: #FFFFFF;
-    width: 100%;
-    padding: 30px 30px 20px 30px;
-    font-family: 'Open Sans', sans-serif;
-    -webkti-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-    -moz-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-    -ms-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-    -o-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-    transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-}
+        img {
+            display: block;
+            width: 120%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s linear 0s;
+        }
+    }
 
-.card-module .card-content .category {
-    position: absolute;
-    top: -18px;
-    right: 20px;
-    padding: 5px 15px;
-    color: #FFFFFF;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
+    .card-content {
+        position: absolute;
+        bottom: 0;
+        background: #FFFFFF;
+        width: 100%;
+        padding: 30px 30px 20px 30px;
+        font-family: 'Open Sans', sans-serif;
+        box-sizing: border-box;
+        transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
 
-.card-module .card-content .category.cognitive {
-background: #9CCB46;
-}
+        .category {
+            position: absolute;
+            top: -18px;
+            right: 20px;
+            padding: 5px 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 5px;
 
-.card-module .card-content .category.communicative {
-    background: #e35760;
-}
+            &.cognitive {
+                background: $accent-green;
+            }
 
-.card-module .card-content .category.emotional {
-    background: #ffbb1e;
-}
+            &.communicative {
+                background: $mte-pink;
+            }
 
-.card-module .card-content .category.musical {
-    background: #246c99;
-}
+            &.emotional {
+                background: $accent-yellow;
+            }
 
-.card-module .card-content .category.psychosocial {
-    background: #FF914D;
-}
+            &.musical {
+                background: $mte-blue;
+            }
 
-.card-module .card-content .category.sensorimotor {
-    background: #8C52FF;
-}
+            &.psychosocial {
+                background: $campfire-orange;
+            }
 
-.card-module .card-content .category.spiritual {
-    background: #CB6CE6;
-}
+            &.sensorimotor {
+                background: $accent-purple;
+            }
 
-.card-module .card-content .title {
-    margin: 0;
-    padding: 0 0 10px;
-    color: #333333;
-    font-size: 26px;
-    font-weight: 700;
-    font-family: 'Raleway', sans-serif;
-}
+            &.spiritual {
+                background: $accent-pink;
+            }
+        }
 
-.card-module .card-content .sub_title {
-    margin: 0;
-    padding: 0 0 20px;
-    color: #FC7405;
-    font-size: 20px;
-    font-weight: 400;
-    font-family: 'Raleway', sans-serif;
-}
+        .title {
+            margin: 0;
+            padding: 0 0 10px;
+            color: $black;
+            font-size: 26px;
+            font-weight: 700;
+            font-family: 'Raleway', sans-serif;
+        }
 
-.card-module .card-content .description {
-    display: none;
-    color: #666666;
-    font-size: 14px;
-    line-height: 1.8em;
-    padding: 0 0 10px;
-}
+        .sub_title {
+            margin: 0;
+            padding: 0 0 20px;
+            color: $campfire-orange;
+            font-size: 20px;
+            font-weight: 400;
+            font-family: 'Raleway', sans-serif;
+        }
 
-.card-module .card-content .card-meta {
-    /*display: none;*/
-    color: #666666;
-    font-weight: 600;
-}
+        .description {
+            max-height: 0;
+            transition: max-height 0.15s ease-out;
+            overflow: hidden;
+            color: $text-color;
+            font-size: 14px;
+            line-height: 1.8em;
+        }
 
-.card-module .card-content ul {
-    padding: 0;
-    list-style-type: none;
-    font-size: 14px;
-    line-height: 16px;
-}
+        .card-meta {
+            color: $text-color;
+            font-weight: 600;
 
-.card-module .card-content .card-meta li {
-    padding: 10px 0 10px 25px;
-}
+            ul {
+                padding: 0;
+                list-style-type: none;
+                font-size: 14px;
+                line-height: 16px;
+            }
 
-.card-module .card-content .card-meta li:before {
-    position:absolute;
-    left: 30px;
-}
+            li {
+                padding: 10px 0 10px 25px;
 
-.card-module .card-content .card-meta li:first-of-type:before {
-    content: "\f1ae";
-    font-family: 'Font Awesome 5 Pro';
-}
+                &:before {
+                    position:absolute;
+                    left: 30px;
+                }
 
-.card-module .card-content .card-meta li:last-of-type:before {
-    content: "\f7a6";
-    font-family: 'Font Awesome 5 Pro';
-}
+                &:first-of-type:before {
+                    content: "\f1ae";
+                    font-family: 'Font Awesome 5 Pro';
+                }
 
-.card-module .card-content .card-meta li i {
-    padding-right: 15px;
-}
+                &:last-of-type:before {
+                    content: "\f7a6";
+                    font-family: 'Font Awesome 5 Pro';
+                }
 
-.card-module .card-content .card-access {
-    margin: 10px 0 0;
-    text-align: center;
-}
+                i {
+                    padding-right: 15px;
+                }
+            }
+        }
 
-.card-module .card-content .card-access a {
-    text-decoration: none;
-}
+        .card-access {
+            margin: 10px 0 0;
+            text-align: center;
 
-.card-module .card-content .card-access .button {
-    color: #FFFFFF;
-    font-weight: bold;
-    padding: 12px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-out;
-	cursor: pointer;
-}
+            a {
+                text-decoration: none;
+            }
 
-.card-module .card-content .card-access .button:hover {
-    filter: brightness(110%);
-}
+            .button {
+                color: #FFFFFF;
+                font-weight: bold;
+                padding: 12px 20px;
+                border-radius: 5px;
+                box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease-out;
+                cursor: pointer;
 
-.card-module .card-content .card-access .button i {
-    padding-left: 5px;
-}
+                &:hover {
+                    filter: brightness(110%);
+                }
 
-.hover .card-content .description {
-    display: block !important;
-    height: auto !important;
-    opacity: 1 !important;
+                i {
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
 }
 
 /* Disabled cards */
-.disabled .thumbnail img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-}
+.disabled {
+    .thumbnail img {
+        filter: grayscale(100%);
+    }
 
-.disabled .card-content .sub_title, .disabled .card-content .card-access, .disabled .card-content .description, .disabled .card-content .card-meta  {
-    color: #888888;
-}
+    .card-content {
+        .sub_title,
+        .card-access,
+        .description,
+        .card-meta  {
+            color: $med-gray;
+        }
 
-.disabled .card-content .title {
-    color: #666666;
-}
+        .title {
+            color: $text-color;
+        }
 
-.disabled .card-content .card-access .button {
-    background: #666666;
-}
+        .card-access .button {
+            background: $text-color;
+        }
 
-.disabled .card-content .category.cognitive, .disabled .card-content .category.communicative, .disabled .card-content .category.emotional, .disabled .card-content .category.musical, .disabled .card-content .category.psychosocial, .disabled .card-content .category.sensorimotor, .disabled .card-content .category.spiritual {
-    background: #666666;
+        .category {
+            &.cognitive,
+            &.communicative,
+            &.emotional,
+            &.musical,
+            &.psychosocial,
+            &.sensorimotor,
+            &.spiritual {
+                background: $text-color;
+            }
+        }
+    }
 }

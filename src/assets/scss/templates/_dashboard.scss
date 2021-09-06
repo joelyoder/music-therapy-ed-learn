@@ -1,16 +1,14 @@
 /*****DASHBOARD TEMPLATE*****/
 
 #main-content.campfire {
-    background-color: #f4f4f4 !important; /*Override Divi*/
+    background-color: $light-gray !important; /*Override Divi*/
 }
 
 .section.campfire {
     margin: 0 auto;
     padding: 50px 0;
-}
 
-@media only screen and (max-width: 980px) {
-    .section.campfire {
+    @media only screen and (max-width: 980px) {
         padding-top: 0px;
     }
 }
@@ -19,62 +17,59 @@
 
 .header-card {
     padding: 20px;
-    background-image: linear-gradient(32deg,#ffffff 60%,#FC7405 60%);
+    background-image: linear-gradient(32deg,#ffffff 60%,$campfire-orange 60%);
     background-color: #ffffff;
     box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
     max-width: 960px;
     width: 100%;
-}
 
-@media only screen and (max-width: 980px) {
-    .header-card {
+    @media only screen and (max-width: 980px) {
         padding: 35px 40px;
-        background-image: linear-gradient(165deg,#ffffff 75%,#FC7405 75%);
+        background-image: linear-gradient(165deg,#ffffff 75%,$campfire-orange 75%);
         box-shadow: none;
     }
-}
 
-.header-card .message, .header-card .video {
-    position: relative;
-}
-
-.header-card .message {
-    margin-bottom: 30px;
-}
-
-@media (min-width: 981px) {
-    .header-card .message, .header-card .video {
-        width: 47.25%;
-        float: left;
+    .message,
+    .video {
         position: relative;
+
+        @media (min-width: 981px) {
+            width: 47.25%;
+            float: left;
+            position: relative;
+        }
     }
 
-    .header-card .message {
-        padding: 40px 30px 30px 30px;
-        margin-right: 5.5%;
-        margin-bottom: 0;
+    .message {
+        margin-bottom: 30px;
+
+        @media (min-width: 981px) {
+            padding: 40px 30px 30px 30px;
+            margin-right: 5.5%;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            line-height: 1.8em;
+        }
+
+        .count {
+            background: $accent-yellow;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 5px 10px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .button {
+            margin-bottom: 10px;
+
+            i {
+                padding-left: 10px;
+            }
+        }
     }
-}
-
-.header-card .message h1 {
-    line-height: 1.8em;
-}
-
-.header-card .message .count {
-    background: #FFBB1E;
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 5px 10px;
-    font-weight: bold;
-    margin-right: 5px;
-}
-
-.header-card .button {
-    margin-bottom: 10px;
-}
-
-.header-card .button i {
-    padding-left: 10px;
 }
 
 /* FILTERING AND SEARCH */
@@ -135,13 +130,13 @@
 .filter-label {
     padding: 0 5px;
     font-weight: bold;
-    color: #246c99;
+    color: $mte-blue;
 }
 
 .filter-button {
 	background-color: #ffffff;
     border-radius: 10px;
-    color: #4e4e4e;
+    color: $dark-gray;
     font-size: 14px;
     font-weight: bold;
     padding: 10px 20px;
@@ -150,7 +145,7 @@
 }
 
 .filter-button:hover, .filter-button.is-checked {
-    background-color: #246c99;
+    background-color: $mte-blue;
     color: #ffffff;
 }
 

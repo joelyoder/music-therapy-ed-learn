@@ -11,7 +11,8 @@ var replace = require('gulp-replace');
 
 // File paths
 const files = { 
-    scssPath: 'src/assets/scss/*.scss'
+    scssPath: 'src/assets/scss/*.scss',
+    scssFolderPath: 'src/scss/**/*.scss',
 }
 
 // Sass task: compiles the style.scss file into style.css
@@ -36,10 +37,10 @@ function cacheBustTask(){
 // Watch task: watch SCSS files for changes
 // If any change, run scss task
 function watchTask(){
-    watch([files.scssPath],
+    watch([files.scssPath,files.scssFolderPath],
         {interval: 1000, usePolling: true}, //Makes docker work
         series(
-            scssTask
+            scssTask,
         )
     );
 }
@@ -48,6 +49,5 @@ function watchTask(){
 // Runs the scss and js tasks simultaneously
 // then runs cacheBust, then watch task
 exports.default = series(
-    scssTask,
-    watchTask
+    scssTask
 );
