@@ -1,164 +1,228 @@
 /*****DASHBOARD TEMPLATE*****/
 
-#main-content.campfire {
+.library-procamp {
+    display: grid;
+    grid-template-columns: 350px minmax(350px, 1500px);
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "sidebar header-cards"
+      "sidebar intervention-cards";
+    grid-gap: 40px 40px;
+    padding: 50px 30px;
     background-color: $light-gray !important; /*Override Divi*/
-}
-
-.section.campfire {
-    margin: 0 auto;
-    padding: 50px 0;
 
     @media only screen and (max-width: 980px) {
-        padding-top: 0px;
-    }
-}
-
-/* HEADER CARDS */
-
-.header-card {
-    padding: 20px;
-    background-image: linear-gradient(32deg,#ffffff 60%,$campfire-orange 60%);
-    background-color: #ffffff;
-    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3);
-    max-width: 960px;
-    width: 100%;
-
-    @media only screen and (max-width: 980px) {
-        padding: 35px 40px;
-        background-image: linear-gradient(165deg,#ffffff 75%,$campfire-orange 75%);
-        box-shadow: none;
+        display: grid; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: max-content max-content max-content; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+          "header-cards"
+          "sidebar"
+          "intervention-cards"; 
+        padding: 0;
     }
 
-    .message,
-    .video {
-        position: relative;
+    .header-cards {
+        grid-area: header-cards;
 
-        @media (min-width: 981px) {
-            width: 47.25%;
-            float: left;
-            position: relative;
-        }
-    }
+        .header-card {
+            padding: 20px;
+            background-image: linear-gradient(32deg,#ffffff 60%,$campfire-orange 60%);
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1110px;
+            width: 100%;
+            height: 100%;
 
-    .message {
-        margin-bottom: 30px;
+            @media only screen and (max-width: 980px) {
+                padding: 35px 40px;
+                background-image: linear-gradient(165deg,#ffffff 75%,$campfire-orange 75%);
+                box-shadow: none;
+            }
 
-        @media (min-width: 981px) {
-            padding: 40px 30px 30px 30px;
-            margin-right: 5.5%;
-            margin-bottom: 0;
-        }
+            .message,
+            .video {
+                position: relative;
 
-        h1 {
-            line-height: 1.8em;
-        }
+                @media (min-width: 981px) {
+                    width: 47.25%;
+                    float: left;
+                    position: relative;
+                }
+            }
 
-        .count {
-            background: $accent-yellow;
-            color: #ffffff;
-            border-radius: 10px;
-            padding: 5px 10px;
-            font-weight: bold;
-            margin-right: 5px;
-        }
+            .message {
+                margin-bottom: 30px;
 
-        .button {
-            margin-bottom: 10px;
+                @media (min-width: 981px) {
+                    padding: 40px 30px 30px 30px;
+                    margin-right: 5.5%;
+                    margin-bottom: 0;
+                }
 
-            i {
-                padding-left: 10px;
+                h1 {
+                    line-height: 1.8em;
+                }
+
+                .count {
+                    background: $accent-yellow;
+                    color: #ffffff;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    font-weight: bold;
+                    margin-right: 5px;
+
+                    i {
+                        color: #fff;
+                        margin-right: 5px;
+                    }
+                }
+
+                .button {
+                    margin-bottom: 10px;
+
+                    i {
+                        padding-left: 10px;
+                    }
+                }
             }
         }
     }
-}
 
-/* FILTERING AND SEARCH */
+    .filter-sidebar {
+        grid-area: sidebar;
 
-/* Hide filter buttons on mobile */
-.filters {
-    display: none;       
-}
+        .sticky-wrapper {
+            position: sticky;
+            top: 40px;
 
-/* Hide select boxes on desktop, show filter buttons */
-@media (min-width: 981px) {
-    .filters {
-        display: initial;
+            .facetwp-checkbox,
+            .facetwp-radio {
+                background: none;
+                padding-left: 0;
+                font-size: 1.1em;
+                margin-bottom: 8px;
+                color: #888;
+        
+                &:hover,
+                &:focus {
+                    color: $mte-pink;
+                    font-weight: 600;
+                }
+        
+                &.checked {
+                    background: none;
+                    color: $mte-blue;
+                    font-weight: 600;
+                }
+        
+                .facetwp-counter {
+                    display: none;
+                }
+            }
+
+            .facetwp-checkbox {
+                padding-left: 25px;
+
+                &:before {
+                    position:absolute;
+                    margin-left: -25px;
+                    content: "\f0c8";
+                    font-family: 'Font Awesome 5 Pro';
+                }
+
+                &.checked::before {
+                    content: "\f14a";
+                }
+            }
+
+            .facetwp-radio {
+                padding-left: 25px;
+
+                &:before {
+                    position:absolute;
+                    margin-left: -25px;
+                    content: "\f111";
+                    font-family: 'Font Awesome 5 Pro';
+                }
+
+                &.checked::before {
+                    content: "\f192";
+                }
+            }
+        
+            .facetwp-input-wrap {
+                width: 100%;
+            }
+        
+            .facetwp-icon {
+                right: 15px;
+            }
+        
+            .facetwp-search {
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 3px solid $mte-blue;
+                border-radius: 10px 10px 0 0;
+                padding: 15px;
+                font-size: 1.1em;
+                width: 100%;
+                background-color: unset;
+        
+                &:focus,
+                &:active,
+                &:hover {
+                    background-color: #fff;
+                }
+        
+                &:focus,
+                &:active {
+                    border-color: $mte-pink;
+                }
+            }
+        }
+
+        .mobile-filters {
+            display: none;
+            
+            .facetwp-facet {
+                margin-bottom: 15px;
+            }
+
+            .facetwp-input-wrap {
+                width: 100%;
+            }
+
+            .facetwp-dropdown,
+            .facetwp-search {
+                font-size: 1em;
+                width: 100%;
+                padding: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 980px) {
+            padding: 40px 20px;
+
+            .sticky-wrapper {
+                display: none;
+            }
+
+            .mobile-filters {
+                display: initial;
+            }
+        }
     }
-    .select-filters {
-        display: none;
+
+    .intervention-card-container {
+        grid-area: intervention-cards;
+
+        @media only screen and (max-width: 980px) {
+            padding: 0 20px 40px 20px;
+        }
     }
-}
-
-.searchbox {
-    margin: 0 auto;
-    display: flex;
-    width: 90%;
-    max-width: 960px;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.searchbox:hover {
-    background-color: #ffffff;
-}
-
-.button-group {
-    margin: 20px auto;
-}
-
-.searchbox, .button-group {
-    width: 90%;
-    max-width: 960px;
-}
-
-.searchbox i {
-    width: 40px;
-    line-height: 40px;
-    text-align: center;
-}
-
-.searchbox .quicksearch {
-    flex-grow: 1;
-    height: 40px;
-    border: 0;
-    background-color: rgba(255, 255, 255, 0);
-    font-size: 20px;
-}
-
-.filter-label {
-    padding: 0 5px;
-    font-weight: bold;
-    color: $mte-blue;
-}
-
-.filter-button {
-	background-color: #ffffff;
-    border-radius: 10px;
-    color: $dark-gray;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: 0;
-    margin: 5px;
-}
-
-.filter-button:hover, .filter-button.is-checked {
-    background-color: $mte-blue;
-    color: #ffffff;
-}
-
-.select-filters {
-    margin: 0 auto 30px auto;
-    width: 90%;
-}
-
-.filters-select {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 14px;
-    border: 0;
-    border-radius: 10px;
-}
+}  
