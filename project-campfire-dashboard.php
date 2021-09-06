@@ -8,6 +8,11 @@
 
 get_header();
 
+if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_tag_id' ) ) {
+    echo "<p>You must have Advanced Custom Fields and AcessAlly enabled.</p>";
+    return;
+}
+
 ?>
 
 
@@ -15,22 +20,28 @@ get_header();
 <div id="main-content" class="library-procamp">
 
     <div class="filter-sidebar">
-        <div class="sticky-wrapper">
-            <?php echo facetwp_display( 'facet', 'procamp_search' ); ?>
-            <h3>Type</h3>
-            <?php echo facetwp_display( 'facet', 'procamp_type' ); ?>
-            <h3>Domains</h3>
-            <?php echo facetwp_display( 'facet', 'procamp_domains' ); ?>
-            <h3>Populations</h3>
-            <?php echo facetwp_display( 'facet', 'procamp_populations' ); ?>
-        </div>
+        <h2 class="sr-only">Search and Filter</h2>
 
-        <div class="mobile-filters">
-            <?php echo facetwp_display( 'facet', 'procamp_search' ); ?>
-            <?php echo facetwp_display( 'facet', 'procamp_type_mobile' ); ?>
-            <?php echo facetwp_display( 'facet', 'procamp_domains_mobile' ); ?>
-            <?php echo facetwp_display( 'facet', 'procamp_populations_mobile' ); ?>
-        </div>
+        <?php if ( function_exists( 'facetwp_display' ) ) : //Ensure FacetWP is installed ?>
+            <div class="sticky-wrapper">
+                <?php echo facetwp_display( 'facet', 'procamp_search' ); ?>
+                <h3>Type</h3>
+                <?php echo facetwp_display( 'facet', 'procamp_type' ); ?>
+                <h3>Domains</h3>
+                <?php echo facetwp_display( 'facet', 'procamp_domains' ); ?>
+                <h3>Populations</h3>
+                <?php echo facetwp_display( 'facet', 'procamp_populations' ); ?>
+            </div>
+
+            <div class="mobile-filters">
+                <?php echo facetwp_display( 'facet', 'procamp_search' ); ?>
+                <?php echo facetwp_display( 'facet', 'procamp_type_mobile' ); ?>
+                <?php echo facetwp_display( 'facet', 'procamp_domains_mobile' ); ?>
+                <?php echo facetwp_display( 'facet', 'procamp_populations_mobile' ); ?>
+            </div>
+        <?php else : ?>
+            <p>Install and configure FacetWP to enable filtering.</p>
+        <?php endif; ?>
     </div>
 
     <div class="header-cards">
