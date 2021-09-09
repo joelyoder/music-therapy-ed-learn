@@ -60,11 +60,31 @@
             "delay": 0
         },
         {
+            "key": "field_61397a05c6d34",
+            "label": "Videos",
+            "name": "video_repeater",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": []
+        },
+        {
             "key": "field_5de5d42eec9a0",
-            "label": "Video embed",
+            "label": "Video embed (deprecated)",
             "name": "video",
             "type": "oembed",
-            "instructions": "",
+            "instructions": "This field has been deprecated - use the Videos repeater to add video embeds to new interventions.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -301,7 +321,6 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "permalink",
         "the_content",
         "excerpt",
         "discussion",
@@ -316,5 +335,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1630912530
+    "modified": 1631159472
 }

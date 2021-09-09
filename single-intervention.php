@@ -115,10 +115,21 @@ if (!empty($domain_attrs)){
 			<?php if( $resources || $video ) : ?>
 				<h2>Resources</h2>
 				<?php echo $resources ?>
+				
+				<?php if( have_rows('video_repeater') ) : // Check rows exists ?>
+					<?php while( have_rows('video_repeater') ) : the_row(); ?>
+						<?php $video_embed = get_sub_field('video_embed'); ?>
+						<br />
+						<div class="embed-container">
+							<?php echo $video_embed ?>
+						</div><!-- .embed-container -->
+					<?php endwhile; ?>
+				<?php endif; ?>
+
 				<?php if( get_field('video') ) : ?>
-					<br >
+					<br />
 					<div class="embed-container">
-						<?php echo $video ?>
+						<?php echo $video_embed ?>
 					</div><!-- .embed-container -->
 				<?php endif; ?>
 			<?php endif; ?>

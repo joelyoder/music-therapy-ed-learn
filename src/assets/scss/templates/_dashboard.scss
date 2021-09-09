@@ -2,7 +2,7 @@
 
 .library-procamp {
     display: grid;
-    grid-template-columns: 350px minmax(350px, 1500px);
+    grid-template-columns: 350px minmax(350px, 1fr);
     grid-template-rows: max-content max-content;
     grid-auto-flow: row;
     grid-template-areas:
