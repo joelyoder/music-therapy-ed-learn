@@ -21,6 +21,9 @@ if (!empty($domain_attrs)){
 		<div class="intervention-subnav">
 			<a href="/project-campfire" class="intervention-mobile-nav"><i class="far fa-chevron-left"></i>&nbsp;&nbsp;<strong>Project</strong> Campfire</a>
 		</div><!-- .intervention-subnav -->
+		<div class="content-shadow">
+			<!-- Funky workaround to have shadow behind multiple grid elements without overlap -->
+		</div>
 		<div class="intervention-header">
 			<?php
 			if ( !empty($domain)) :

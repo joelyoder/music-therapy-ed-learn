@@ -14,7 +14,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 5em 0;
-}
+} 
 
 @media only screen and (max-width: 767px) {
     .intervention-grid-container {
@@ -52,17 +52,25 @@
 /* HEADER */
 
 .intervention-header {
+    grid-area: 1 / 2 / 2 / 3;
     grid-area: header;
     background: white;
+    border-radius: 12px 12px 0 0;
 
     @media only screen and (max-width: 767px) {
         padding-bottom: 30px;
+        border-radius: 0;
     }
 
     img {
         max-height: 400px;
         object-fit: cover;
         width: 100%;
+        border-radius: 12px 12px 0 0;
+
+        @media only screen and (max-width: 767px) {
+            border-radius: 0;
+        }
     }
 
     h1 {
@@ -88,6 +96,7 @@
 /* SIDEBAR */
   
 .intervention-sidebar {
+    grid-area: 1 / 1 / 3 / 2;
     grid-area: sidebar;
     margin-right: 30px;
 
@@ -167,12 +176,15 @@
 /* CONTENT */
   
 .intervention-content {
+    grid-area: 2 / 2 / 3 / 3;
     grid-area: content;
     background: white;
     padding: 0 40px 40px 40px;
+    border-radius: 0 0 12px 12px;
 
     @media only screen and (max-width: 767px) {
         padding: 0 30px 30px 30px;
+        border-radius: 0;
     }
 
     p {
@@ -208,29 +220,13 @@
 }
 
 /* HEADER + CONTENT AREA BOX SHADOW */
-.intervention-header,
-.intervention-content {
+.content-shadow {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    grid-area: 1 / 2 / 3 / 3;
+    border-radius: 25px;
 
     @media only screen and (max-width: 767px) {
-        box-shadow: none;
-    }
-}
-
-.intervention-header,
-.intervention-header img {
-    border-radius: 12px 12px 0 0;
-
-    @media only screen and (max-width: 767px) {
-        border-radius: 0;
-    }
-}
-
-.intervention-content {
-    border-radius: 0 0 12px 12px;
-
-    @media only screen and (max-width: 767px) {
-        border-radius: 0;
+        display: none;
     }
 }
 
