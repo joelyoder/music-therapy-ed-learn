@@ -6,6 +6,7 @@ $description = get_field( 'description' );
 $instructions = get_field( 'instructions');
 $resources = get_field( 'resources' );
 $video = get_field( 'video' );
+$jam_along = get_field( 'jam_along' );
 
 $domain_attrs = get_the_terms( $post->ID, 'domain' );
 if (!empty($domain_attrs)){
