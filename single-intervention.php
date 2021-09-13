@@ -47,6 +47,9 @@ if (!empty($domain_attrs)){
 						echo '<img src="https://learn.musictherapyed.com/wp-content/uploads/2019/11/Spiritual-Intervention-Cover.png" alt="" />';
 						break;
 				endswitch;
+			// Set the image to Jam Along
+			elseif ( !empty($domain) && $jam_along) :
+				echo '<img src="/wp-content/uploads/2020/11/Jam-Along-Intervention-Cover.jpg" alt="" />';
 			endif; ?>
 			<h1><?php echo get_the_title( $post_id ); ?></h1>
 			<p><?php echo $description ?></p>
