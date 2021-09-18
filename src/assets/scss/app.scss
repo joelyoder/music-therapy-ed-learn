@@ -1,15 +1,12 @@
+// Utilities
 @import "util/variables";
+@import "util/accessibility";
 
+// Base components
+@import "base/button";
+@import "base/count";
+@import "base/card";
+
+// Templates
 @import "templates/intervention";
 @import "templates/dashboard";
-@import "templates/cards";
-
-// Compat for screen reader only text
-.sr-only {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-}

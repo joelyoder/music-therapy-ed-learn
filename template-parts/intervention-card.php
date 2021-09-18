@@ -14,16 +14,26 @@ $operation_id = get_field('operation_id');
 $tag = get_field('tag');
 $description = get_field('description');
 
-// Pull the last slug of the Domain attributes (there should only be one, but some have multiple)
-if ( $domain_attrs = get_the_terms( $post->ID, 'domain' ) ) {
-    foreach($domain_attrs as $attr){
-    $domain = $attr->slug;
-    }
+// Pull in the population attributes used to style the page
+if ( $population_attrs = get_the_terms( $post->ID, 'population' ) ) {
+
+	// Grab the last name & ID and format the ID for ACF
+	foreach( $population_attrs as $attr ){
+        $population = $attr->name;
+		$population_id = $attr->term_id;
+		$population_tax_id = 'population_' . $population_id;
+	}
+
+	// Pull in the population-specific design elements
+	if ( !empty( $population_tax_id ) ) {
+		$population_image = get_field( 'image', $population_tax_id );
+		$population_color = get_field( 'color', $population_tax_id );
+	}
 }
 
 // List populations and format for card and shuffle
-if ( $population_terms = get_the_terms( $post->ID, 'population' ) ) {
-    $population_terms_string = join(', ', wp_list_pluck($population_terms, 'name'));
+if ( $domain_terms = get_the_terms( $post->ID, 'domain' ) ) {
+    $domain_terms_string = join(', ', wp_list_pluck($domain_terms, 'name'));
 }
 
 // List equipment and format for card and shuffle
@@ -41,58 +51,44 @@ if( !accessally_has_any_tag_id("104,2207,1879,2529,$tag") && !$freebie ):
 endif;
 ?>">
     <!-- Thumbnail-->
-    <div class="intervention-card-image">
+    <div
+    class="intervention-card-image"
+    <?php if( $population_color && $type != 'jam-along' ) {
+        // Leave the BG color white if Jam Along, otherwise match the set population color
+        echo 'style="background-color:' . $population_color . ';"';
+    }?>>
         <?php
-        // Set the image to the domain unless it's a Jam Along
-        // @todo: fix the manually set URLs to an ACF settings page
-        if ( !empty($domain) && $type != 'jam-along' ) :
-            switch ($domain) :
-                case "cognitive":
-                    echo '<img src="/wp-content/uploads/2019/11/Cognitive-Intervention-Cover.png" alt="" />';
-                    break;
-                case "communicative":
-                    echo '<img src="/wp-content/uploads/2019/11/Communication-Intervention-Cover.png" alt="" />';
-                    break;
-                case "emotional":
-                    echo '<img src="/wp-content/uploads/2019/11/Emotional-Intervention-Cover.png" alt="" />';
-                    break;
-                case "musical":
-                    echo '<img src="/wp-content/uploads/2019/11/Musical-Intervention-Cover.png" alt="" />';
-                    break;
-                case "psychosocial":
-                    echo '<img src="/wp-content/uploads/2019/11/Pscyhosocial-Intervention-Cover.png" alt="" />';
-                    break;
-                case "sensorimotor":
-                    echo '<img src="/wp-content/uploads/2019/11/Sensorimotor-Intervention-Cover.png" alt="" />';
-                    break;
-                case "spiritual":
-                    echo '<img src="/wp-content/uploads/2019/11/Spiritual-Intervention-Cover.png" alt="" />';
-                    break;
-            endswitch;
+        // Set the image to the population unless it's a Jam Along
+        if ( $population_image && $type != 'jam-along' ) :
+            echo wp_get_attachment_image( $population_image, 'medium' );
         // Set the image to Jam Along
-        elseif ( !empty($domain) && $type == 'jam-along' ) :
-            echo '<img src="/wp-content/uploads/2020/11/Jam-Along-Intervention-Cover.jpg" alt="" />';
-        endif; ?>
+        elseif ( $type == 'jam-along' ) :
+            $jam_along_image = get_field( 'jam_along_image', 'option' );
+            echo wp_get_attachment_image( $jam_along_image, 'medium' );
+        // Otherwise just use the default image from the theme settings
+        else :
+            $default_procamp_image = get_field( 'default_procamp_image', 'option' );
+            echo wp_get_attachment_image( $default_procamp_image, 'medium' );
+        endif;
+        ?>
     </div>
 
     <!-- Card Content-->
     <div class="intervention-card-info">
         
-        <div class="category <?php echo $domain; ?>">
-            <?php echo $domain; ?>
-        </div>
+        <?php if( $population ) : ?>
+            <div class="category" <?php echo ( $population_color ) ? 'style="background-color:' . $population_color . ';"' : '' ; ?>><?php echo $population; ?></div>
+        <?php endif; ?>
 
         <h2 class="title"><?php the_title(); ?></h2>
 
-        <?php if ( $description ) : ?>
-            <p class="description"><?php echo $description ?></p>
-        <?php endif; ?>
+        <?php if ( $description ) : ?><p class="description"><?php echo $description ?></p><?php endif; ?>
 
         <ul class="intervention-card-taxonomies">
-            <?php if ( $population_terms_string ) : ?>
-                <li>For
+            <?php if ( $domain_terms_string ) : ?>
+                <li>Domains:
                     <?php
-                    echo $population_terms_string;
+                    echo $domain_terms_string;
                     ?>
                 </li>
             <?php endif; ?>

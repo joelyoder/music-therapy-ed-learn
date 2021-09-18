@@ -12,10 +12,7 @@ if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_ta
     echo "<p>You must have Advanced Custom Fields and AcessAlly enabled.</p>";
     return;
 }
-
 ?>
-
-
 
 <div id="main-content" class="library-procamp">
 

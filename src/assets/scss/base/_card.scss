@@ -27,7 +27,6 @@
       overflow: hidden;
       border-radius: 12px 12px 0 0;
       max-height: 260px;
-      background-color: $mte-blue;
       //transition: max-height 0.2s ease-in;
   
       img {
@@ -58,34 +57,8 @@
             font-weight: 600;
             text-transform: uppercase;
             border-radius: 5px;
-
-            &.cognitive {
-                background: $accent-green;
-            }
-
-            &.communicative {
-                background: $mte-pink;
-            }
-
-            &.emotional {
-                background: $accent-yellow;
-            }
-
-            &.musical {
-                background: $mte-blue;
-            }
-
-            &.psychosocial {
-                background: $campfire-orange;
-            }
-
-            &.sensorimotor {
-                background: $accent-purple;
-            }
-
-            &.spiritual {
-                background: $accent-magenta;
-            }
+            background-color: $mte-blue;
+            box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.1);
         }
     
         h2,
@@ -152,20 +125,6 @@
         .unlocks {
             flex-grow: 1;
             padding: 8px 0;
-
-            .count {
-                background: $accent-yellow;
-                color: #ffffff;
-                border-radius: 5px;
-                padding: 5px 10px;
-                font-weight: bold;
-                margin-right: 5px;
-
-                i {
-                    color: #fff;
-                    margin-right: 5px;
-                }
-            }
         }
         
 
