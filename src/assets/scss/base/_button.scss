@@ -1,0 +1,57 @@
+.button {
+	display: inline-block;
+	background: $mte-blue;
+ 	color: #fff;
+	font-weight: bold;
+	padding: 8px 15px;
+	border-radius: 5px;
+	box-shadow: 0px 5px 10px -6px rgba(0,0,0,0.3);
+	transition: all 0.3s ease-out;
+
+    &:hover {
+        filter: brightness(110%);
+    }
+
+    &.pink {
+        background: $mte-pink;
+    }
+
+    &.gold {
+        background: $accent-yellow;
+    }
+    
+    &.gray {
+        background: $med-gray;
+
+        &:hover {
+            filter: none;
+        }
+    }
+    
+    &.green {
+        background: $accent-green;
+    }
+    
+    &.orange {
+        background: $campfire-orange;
+    }
+    
+    // Why the fuck is this called "white"??
+    &.white {
+        color: $mte-blue;
+        background: #fff;
+
+        &:hover {
+            color: $campfire-orange;
+        }
+    }
+
+    i {
+        padding-left: 5px;
+    }
+}
+
+.welcome .button {
+	margin-right: 20px;
+	margin-bottom: 10px;
+}

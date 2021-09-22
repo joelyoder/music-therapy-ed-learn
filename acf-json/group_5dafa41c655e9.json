@@ -60,11 +60,48 @@
             "delay": 0
         },
         {
+            "key": "field_61397a05c6d34",
+            "label": "Videos",
+            "name": "video_repeater",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Video",
+            "sub_fields": [
+                {
+                    "key": "field_613983ecc6d35",
+                    "label": "Video embed",
+                    "name": "video_embed",
+                    "type": "oembed",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "width": "",
+                    "height": ""
+                }
+            ]
+        },
+        {
             "key": "field_5de5d42eec9a0",
-            "label": "Video embed",
+            "label": "Video embed (deprecated)",
             "name": "video",
             "type": "oembed",
-            "instructions": "",
+            "instructions": "This field has been deprecated - use the Videos repeater to add video embeds to new interventions.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -166,9 +203,9 @@
         },
         {
             "key": "field_5fb2d276acd49",
-            "label": "Is this a Jam Along?",
-            "name": "jam_along",
-            "type": "true_false",
+            "label": "Type",
+            "name": "type",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -177,11 +214,17 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "",
-            "ui_off_text": ""
+            "choices": {
+                "idea": "Idea",
+                "jam-along": "Jam Along"
+            },
+            "default_value": "idea",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
             "key": "field_5df1a9a59970c",
@@ -201,6 +244,27 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_6135bdad5065d",
+            "label": "Unlock cost",
+            "name": "unlocks",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
         },
         {
             "key": "field_5df1a8e89970a",
@@ -274,7 +338,6 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
-        "permalink",
         "the_content",
         "excerpt",
         "discussion",
@@ -289,5 +352,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1628182839
+    "modified": 1631161082
 }

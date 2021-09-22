@@ -1,0 +1,213 @@
+.intervention-card-container {
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    grid-gap: 30px;
+  }
+  
+  .intervention-card {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+  
+    // Override default styling for links
+    color: $text-color;
+    text-decoration: none;
+  
+    // Really basic reset
+    p,
+    h2 {
+      margin: 0;
+    }
+  
+    .intervention-card-image {
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+      max-height: 260px;
+      min-height: 40px;
+      background-color: $mte-blue;
+      //transition: max-height 0.2s ease-in;
+  
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        //transition: all 0.2s ease-out;
+      }
+    }
+  
+    .intervention-card-info,
+    .intervention-card-meta {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  
+    .intervention-card-info {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        flex-grow: 1;
+
+        .category {
+            position: absolute;
+            margin-top: -55px;
+            padding: 5px 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 5px;
+            background-color: $mte-blue;
+            box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.1);
+        }
+    
+        h2,
+        h3 {
+            font-size: 1.4em;
+            margin: 0;
+            color: $mte-blue;
+            font-weight: 500;
+        }
+
+        .description {
+            max-height: 0;
+            overflow: hidden;
+            color: $text-color;
+        }
+    
+        p {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .intervention-card-taxonomies {
+            color: $text-color;
+            font-weight: 600;
+
+            ul {
+                padding: 0;
+                list-style-type: none;
+                font-size: 14px;
+                line-height: 16px;
+            }
+
+            li {
+                padding: 10px 0 10px 25px;
+
+                &:before {
+                    position:absolute;
+                    margin-left: -25px;
+                }
+
+                &:first-of-type:before {
+                    content: "\f1ae";
+                    font-family: 'Font Awesome 5 Pro';
+                }
+
+                &:last-of-type:before {
+                    content: "\f7a6";
+                    font-family: 'Font Awesome 5 Pro';
+                }
+            }
+
+            li+li {
+                padding-top: 0;
+            }
+        }
+    }
+  
+    .intervention-card-meta {
+      padding-bottom: 30px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+
+        .unlocks {
+            flex-grow: 1;
+            padding: 8px 0;
+        }
+        
+
+        .buttons {
+            a {
+                text-decoration: none;
+            }
+
+            .button {
+                color: #FFFFFF;
+                font-weight: bold;
+                padding: 12px 20px;
+                border-radius: 5px;
+                box-shadow: 0px 5px 10px -6px rgba(0, 0, 0, 0.3);
+                transition: all 0.25s ease-out;
+                cursor: pointer;
+
+                &:hover {
+                    filter: brightness(110%);
+                }
+
+                i {
+                    padding-left: 5px;
+                }
+            }
+        }
+    }
+  
+    &:hover {
+      color: $text-color;
+
+        .intervention-card-info .description {
+            max-height: 260px;
+            //transition: max-height 0.4s ease-in-out;
+        }
+
+        .intervention-card-image {
+            max-height: 40px;
+            //transition: max-height 0.4s ease-out;
+
+            img {
+                opacity: 0.5;
+                //transform: scale(1.05);
+            }
+        }
+    }
+}
+
+/* Disabled intervention-cards */
+.disabled {
+    .intervention-card-image img {
+        filter: grayscale(100%);
+    }
+
+    .intervention-card-content {
+        .description,
+        .intervention-card-taxonomies  {
+            color: $med-gray;
+        }
+
+        .title {
+            color: $text-color;
+        }
+
+        .intervention-card-meta {
+            .button,
+            .count {
+                background: $text-color;
+            }
+        }
+
+        .category {
+            &.cognitive,
+            &.communicative,
+            &.emotional,
+            &.musical,
+            &.psychosocial,
+            &.sensorimotor,
+            &.spiritual {
+                background: $text-color;
+            }
+        }
+    }
+}
