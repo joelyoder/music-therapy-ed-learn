@@ -27,6 +27,8 @@
       overflow: hidden;
       border-radius: 12px 12px 0 0;
       max-height: 260px;
+      min-height: 40px;
+      background-color: $mte-blue;
       //transition: max-height 0.2s ease-in;
   
       img {
