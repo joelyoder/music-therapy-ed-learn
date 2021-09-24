@@ -150,6 +150,10 @@ if ( $population_attrs = get_the_terms( $post->ID, 'population' ) ) {
 
 			<?php endif; ?>
 
+			<?php if( $intervention_author = get_field( 'author' ) ) : ?>
+				<p class="intervention-author">Submitted by <?php echo $intervention_author; ?>.</p>
+			<?php endif; ?>
+
 		</div><!-- .intervention-content -->
 	</div><!-- .intervention-grid-container -->
 </div> <!-- #main-content -->
