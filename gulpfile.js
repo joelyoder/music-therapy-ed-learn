@@ -1,6 +1,6 @@
 // Initialize modules
 // Importing specific gulp API functions lets us write them below as series() instead of gulp.series()
-const { src, dest, watch, series, parallel } = require('gulp');
+const { src, dest, watch, series } = require('gulp');
 // Importing all the Gulp-related packages we want to use
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
@@ -24,14 +24,6 @@ function scssTask(){
         .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
         .pipe(dest('dist/assets/css')
     ); // put final CSS in dist folder
-}
-
-// Cachebust
-function cacheBustTask(){
-    var cbString = new Date().getTime();
-    return src(['functions.php'])
-        .pipe(replace(/cb=\d+/g, 'cb=' + cbString))
-        .pipe(dest('.'));
 }
 
 // Watch task: watch SCSS files for changes
