@@ -121,6 +121,7 @@ if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_ta
 
         if ( $all_interventions ) {
             $intervention_list = array();
+            $freebie_list = array();
             $owned_list = array();
 
             // Loop through all of the interventions to build ID lists
@@ -130,9 +131,13 @@ if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_ta
 
                 // Add all IDs to an array we can merge into
                 array_push( $intervention_list, $intervention->ID );
-                
-                // If they own the intervention, add it to an array
-                if ( accessally_has_any_tag_id( $tag ) || $freebie ) {
+
+                // If it's a freebie, add it to an array
+                if ( $freebie ) {
+                    array_push( $freebie_list, $intervention->ID );
+
+                // Otherwise if they own the intervention, add it to an array
+                } elseif ( accessally_has_any_tag_id( $tag ) ) {
                     array_push( $owned_list, $intervention->ID );
                 }
             }
@@ -144,7 +149,7 @@ if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_ta
         if ( $intervention_list ) :
 
             // Add the array of owned interventions to the front of our $interventions array
-            $post_ids_merged = array_merge( $owned_list, $intervention_list );
+            $post_ids_merged = array_merge( $freebie_list, $owned_list, $intervention_list );
 
             // Make sure that we remove the ID's from their original positions
             $reordered_ids   = array_unique( $post_ids_merged );
