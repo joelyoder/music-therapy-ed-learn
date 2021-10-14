@@ -1,0 +1,20 @@
+.label, .count { //Include .count for compatibility with old code
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+
+    i {
+        color: #fff;
+        margin-right: 5px;
+    }
+
+    //Reset the right margin on unlocked labels
+    &.green-bg i {
+        margin-right: 0;
+    }
+}
+
+.count {
+    background: var(--accent-yellow);
+}

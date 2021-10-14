@@ -105,24 +105,36 @@ endif;
     <div class="intervention-card-meta">
         <div class="unlocks">
             <?php if( $freebie ) : ?>
-                <?php //Crickets ?>
-            <?php elseif( $unlocks && $unlocks == 1 ) : //If it's worth 1 unlock, make sure it's singular ?>
-                <p><span class="count"><i class="fas fa-key"></i> <?php echo $unlocks; ?></span> <span class="sr-only">unlock</span></p>
-            <?php elseif( $unlocks && $unlocks != 1 ) : //Otherwise, use a plural ?>
-                <p><span class="count"><i class="fas fa-key"></i><?php echo $unlocks; ?></span> <span class="sr-only">unlock</span></p>
+
+                <p><span class="label pink-bg"><i class="fas fa-heart"></i> Free</span></p>
+
+            <?php elseif( accessally_has_any_tag_id( $tag ) ) : ?>
+
+                <p><span class="label green-bg"><i class="fas fa-unlock"></i></span><span class="sr-only">unlocked</span></p>
+
+            <?php elseif( $unlocks ) : //If the number of unlocks is set, display that with the appropriate text label ?>
+
+                <p><span class="label yellow-bg"><i class="fas fa-key"></i> <?php echo $unlocks; ?></span> <span class="sr-only"><?php printf( _n( '%s unlock', '%s unlocks', $unlocks, 'mte' ), number_format_i18n( $unlocks ) ); ?></span></p>
+
             <?php else : //Set the default for no value to 1 for backwards compatibility ?>
-                <p><span class="count"><i class="fas fa-key"></i> 1</span> <span class="sr-only">unlock</span></p>
-            <?php endif; //@todo replace this whole mess with a sprintf ?>
+
+                <p><span class="label yellow-bg"><i class="fas fa-key"></i> 1</span> <span class="sr-only">unlock</span></p>
+
+            <?php endif; ?>
         </div>
         <div class="buttons">
-            <?php if( accessally_has_any_tag_id( $tag ) ): ?>
-                <a class="button orange" href="<?php the_permalink(); ?>">Access <i class="fas fa-fire-alt"></i></a>
-            <?php elseif( $freebie ): ?>
-                <a class="button orange" href="<?php the_permalink(); ?>">FREE <i class="fas fa-fire-alt"></i></a>
+            <?php if( $freebie || accessally_has_any_tag_id( $tag ) ) : ?>
+
+                <a class="button orange orange-bg" href="<?php the_permalink(); ?>">Access <i class="fas fa-fire-alt"></i></a>
+
             <?php elseif( accessally_has_any_tag_id("104,2207,1879,2529") ) : ?>
+
                 <?php echo do_shortcode( '[accessally_custom_operation operation_id="'. $operation_id .'"]' ); ?>
+
             <?php else : ?>
+
                 <a class="button" href="https://musictherapyed.com/campfire/">Upgrade <i class="fas fa-lock"></i></a>
+
             <?php endif; ?>
         </div>
     </div>

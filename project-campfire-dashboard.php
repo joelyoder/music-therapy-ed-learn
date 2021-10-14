@@ -77,7 +77,7 @@ if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_ta
                                         $icon = get_sub_field('icon');
                                         ?>
 
-                                        <a class="button <?php echo $color; ?>" href="<?php echo $url; ?>"<?php if( $external_link ): ?>target="_blank"<?php endif; ?>><?php echo $text; ?><i class="fas fa-<?php echo $icon; ?>"></i></a>
+                                        <a class="button <?php if( $color ) { echo $color . '-bg'; } ?>" href="<?php echo $url; ?>"<?php if( $external_link ): ?>target="_blank"<?php endif; ?>><?php echo $text; ?><i class="fas fa-<?php echo $icon; ?>"></i></a>
 
                                         <?php endwhile; ?>
 
@@ -87,7 +87,7 @@ if ( !function_exists( 'get_field' ) || !function_exists( 'accessally_has_any_ta
 
                                 <!--unlocks counter-->
                                 <?php if( !empty($unlock_id) ): ?>
-                                    <p><span style="display: inline-block;"><span class="count"><i class="fas fa-key"></i>  <?php echo do_shortcode( '[accessally_field_value operation_id="'. $unlock_id .'"]' ); ?></span> <strong>UNLOCKS AVAILABLE</strong></span></p>
+                                    <p><span style="display: inline-block;"><span class="label yellow-bg"><i class="fas fa-key"></i>  <?php echo do_shortcode( '[accessally_field_value operation_id="'. $unlock_id .'"]' ); ?></span> <strong>Unlocks Available</strong></span></p>
                                 <?php endif; ?>
                             </div>
 
