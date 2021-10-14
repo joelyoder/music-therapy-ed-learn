@@ -1,7 +1,7 @@
 /*****INTERVENTION TEMPLATE*****/
 
 .intervention-template-default #main-content {
-    background: $light-gray;
+    background: var(--light-gray);
 }
 
 /* CONTAINER */
@@ -32,7 +32,7 @@
 .intervention-subnav {
     display: none;
     padding: 20px 30px;
-    background-image: linear-gradient(120deg,$accent-yellow 0%,$campfire-orange 100%);
+    background-image: linear-gradient(120deg,var(--accent-yellow) 0%,var(--campfire-orange) 100%);
     background-color: initial;
 }
 
@@ -75,13 +75,13 @@
 
     h1 {
         margin: 50px 0 20px;
-        color: $mte-blue;
+        color: var(--mte-blue);
         font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
         font-size: 32px;
     }
 
     p {
-        color: $black;
+        color: var(--black);
     }
 
     h1, p {
@@ -123,13 +123,13 @@
     }
 
     h2 {
-        color: $campfire-orange;
+        color: var(--campfire-orange);
         text-transform: uppercase;
         padding-bottom: .5em;
     }
 
     li {
-        color: $text-color;
+        color: var(--text-color);
     }
 
     ul {
@@ -141,7 +141,7 @@
         padding: 20px 30px;
 
         &:hover {
-            background: $mte-pink;
+            background: var(--mte-pink);
         }
 
         @media only screen and (max-width: 767px) {
@@ -153,7 +153,7 @@
 }
 
 .intervention-sidebar-nav {
-    color: $text-color;
+    color: var(--text-color);
     font-size: 25px;
     font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
     margin: 30px 0 60px;
@@ -165,11 +165,11 @@
     }    
 
     &:hover {
-        color: $campfire-orange;
+        color: var(--campfire-orange);
     }
 
     i {
-        color: $campfire-orange;
+        color: var(--campfire-orange);
     }
 }
 
@@ -188,11 +188,11 @@
     }
 
     p {
-        color: $black;
+        color: var(--black);
     }
 
     h2 {
-        color: $mte-blue;
+        color: var(--mte-blue);
         font-family: 'Raleway',Helvetica,Arial,Lucida,sans-serif;
         font-size: 24px;
         font-weight: 500;
@@ -252,6 +252,6 @@
 /* Author */
 p.intervention-author{
     margin-top: 1.5rem;
-    color: $dark-gray;
+    color: var(--dark-gray);
     font-style: italic;
 }

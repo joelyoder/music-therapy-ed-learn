@@ -5,9 +5,12 @@
 
 // Base components
 @import "base/button";
-@import "base/count";
+@import "base/label";
 @import "base/card";
 
 // Templates
 @import "templates/intervention";
 @import "templates/dashboard";
+
+// Load last to ensure specificity
+@import "util/colors";

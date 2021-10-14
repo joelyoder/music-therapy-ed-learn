@@ -10,7 +10,7 @@
       "sidebar intervention-cards";
     grid-gap: 40px 40px;
     padding: 50px 30px;
-    background-color: $light-gray !important; /*Override Divi*/
+    background-color: var(--light-gray) !important; /*Override Divi*/
 
     @media only screen and (max-width: 980px) {
         display: grid; 
@@ -29,7 +29,7 @@
 
         .header-card {
             padding: 20px;
-            background-image: linear-gradient(32deg,#ffffff 60%,$campfire-orange 60%);
+            background-image: linear-gradient(32deg,#ffffff 60%,var(--campfire-orange) 60%);
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -38,7 +38,7 @@
             height: 100%;
 
             @media only screen and (max-width: 1200px) {
-                background-image: linear-gradient(165deg,#ffffff 75%,$campfire-orange 75%);
+                background-image: linear-gradient(165deg,#ffffff 75%,var(--campfire-orange) 75%);
                 padding: 35px 40px;
             }
 
@@ -145,13 +145,13 @@
 
     &:hover,
     &:focus {
-        color: $mte-pink;
+        color: var(--mte-pink);
         font-weight: 600;
     }
 
     &.checked {
         background: none;
-        color: $mte-blue;
+        color: var(--mte-blue);
         font-weight: 600;
     }
 
@@ -202,7 +202,7 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: 3px solid $mte-blue;
+    border-bottom: 3px solid var(--mte-blue);
     border-radius: 10px 10px 0 0;
     padding: 15px;
     font-size: 1.1em;
@@ -217,7 +217,7 @@
 
     &:focus,
     &:active {
-        border-color: $mte-pink;
+        border-color: var(--mte-pink);
     }
 }
 

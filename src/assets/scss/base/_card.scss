@@ -14,7 +14,7 @@
     width: 350px;
   
     // Override default styling for links
-    color: $text-color;
+    color: var(--text-color);
     text-decoration: none;
   
     // Really basic reset
@@ -28,7 +28,7 @@
       border-radius: 12px 12px 0 0;
       max-height: 260px;
       min-height: 40px;
-      background-color: $mte-blue;
+      background-color: var(--mte-blue);
       //transition: max-height 0.2s ease-in;
   
       img {
@@ -59,7 +59,7 @@
             font-weight: 600;
             text-transform: uppercase;
             border-radius: 5px;
-            background-color: $mte-blue;
+            background-color: var(--mte-blue);
             box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.1);
         }
     
@@ -67,14 +67,14 @@
         h3 {
             font-size: 1.4em;
             margin: 0;
-            color: $mte-blue;
+            color: var(--mte-blue);
             font-weight: 500;
         }
 
         .description {
             max-height: 0;
             overflow: hidden;
-            color: $text-color;
+            color: var(--text-color);
         }
     
         p {
@@ -83,7 +83,7 @@
         }
 
         .intervention-card-taxonomies {
-            color: $text-color;
+            color: var(--text-color);
             font-weight: 600;
 
             ul {
@@ -156,7 +156,7 @@
     }
   
     &:hover {
-      color: $text-color;
+      color: var(--text-color);
 
         .intervention-card-info .description {
             max-height: 260px;
@@ -184,17 +184,17 @@
     .intervention-card-content {
         .description,
         .intervention-card-taxonomies  {
-            color: $med-gray;
+            color: var(--med-gray);
         }
 
         .title {
-            color: $text-color;
+            color: var(--text-color);
         }
 
         .intervention-card-meta {
             .button,
             .count {
-                background: $text-color;
+                background: var(--text-color);
             }
         }
 
@@ -206,7 +206,7 @@
             &.psychosocial,
             &.sensorimotor,
             &.spiritual {
-                background: $text-color;
+                background: var(--text-color);
             }
         }
     }
